@@ -1,0 +1,41 @@
+import time
+import logging
+import pymongo
+import Queue
+import json
+from kafka import KafkaConsumer
+
+from petrel import storm
+from petrel.emitter import Spout
+
+log = logging.getLogger('kafkaconsumer')
+
+log.debug('randomsentence loading')
+
+class KafkaConsumerSpout(Spout):
+    def __init__(self):
+        super(KafkaConsumerSpout, self).__init__(script=__file__)
+        
+
+    def initialize(self, conf, context):
+        self.consumer = KafkaConsumer(bootstrap_servers='localhost:9092',auto_offset_reset='earliest')
+        self.db = pymongo.MongoClient()
+	self.topic='badtopic'
+        self.consumer.subscribe([self.topic])
+        
+
+    @classmethod
+    def declareOutputFields(cls):
+        return ['sentence']
+
+    def nextTuple(self):
+        #if self.consumer:
+            #storm.emit(['ola'])
+        #else:
+        for message in self.consumer:
+            algo = message.value
+            self.db.BOARD.bad.insert_one({'tweet':algo})
+            storm.emit([algo])
+
+def run():
+    KafkaConsumerSpout().run()
