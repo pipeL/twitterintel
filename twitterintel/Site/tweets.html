@@ -1,0 +1,188 @@
+
+<html>
+<head>
+
+    <title>Untitled Document</title>
+
+    <meta http-equiv = "Content-Type" content = "text/html; charset = utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+
+    <link rel = "stylesheet" type = "text/css" href = "#" />
+    <!--Add your .css file-->
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <link rel="stylesheet" type="text/css" href="mystyle2.css">
+    <link rel="stylesheet" type="text/css" href="mystyle3.css">
+    <script src="js/colResizable-1.5.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    
+
+
+    <style type="text/css">
+
+    </style>
+    <!--  Internal css link -->
+
+    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script type = "text/javascript" src = "#"></script>
+
+    <!--Add Your External jQuery Plugin-->
+
+
+
+    <script type = "text/javascript" lang="javascript">
+
+
+    </script>
+    <!--  Internal jquery/javascript link-->
+
+</head>
+
+
+<body>
+<input type="button" name="answer" value="Start Div" onclick="loadDoc()" />
+<input type="button" name="answer" value="Start Feed" onclick="startFeed()" />
+<div class="JCLgrips">
+
+<table id="sample" class="JColResizer" width="100%" border="0" cellpadding="0" cellspacing="0" >
+<tbody><tr>
+<th style="width: 10%;">Type</th><th style="width: 50%;">Tweet</th>
+</tr>				
+   
+</tbody></table>
+    </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+function loadDoc() {
+   var data= new Array()
+
+   
+   $.ajax({
+       
+          type: "GET",
+          crossDomain: true,
+          url: "http://localhost:7001/getTweetsBad",
+          dataType: "json",
+          success: function(result){
+                 for(var key in result){
+                 var aux = result[String(key)];
+                 data.push(aux);
+                 }
+                 loadTweetsBad(data)
+
+          },
+          error : function(e){
+                alert(e)
+          }
+  })
+   $.ajax({
+          type: "GET",
+          crossDomain: true,
+          url: "http://localhost:7001/getTweetsGood",
+          dataType: "json",
+          success: function(result){
+                 for(var key in result){
+                 var aux = result[String(key)];
+                 data.push(aux);
+                 }
+                 loadTweetsGood(data)
+
+          },
+          error : function(e){
+                alert(e)
+          }
+  })
+   $.ajax({
+          type: "GET",
+          crossDomain: true,
+          url: "http://localhost:7001/getTweetsSpam",
+          dataType: "json",
+          success: function(result){
+                 for(var key in result){
+                 var aux = result[String(key)];
+                 data.push(aux);
+                 }
+                 loadTweetsSpam(data)
+
+          },
+          error : function(e){
+                alert(e)
+          }
+  })
+  }
+    
+function loadTweetsGood(data)
+    {
+        var table = $("#sample");
+        var elementinit = '<tr><td style="border: 1px dashed black; border-right: none" class="left">'
+        var elementmid = '</td><td style="border: 1px dashed black; border-right: none" class="right">'
+        var elementend = '</td></tr>'
+        var font = '<font size="4">'
+        var fontend = '</font>'
+        for (var key in data)
+        {
+            table.append(elementinit + font + 'Positive' + fontend + elementmid  + font + data[key]['tweet'] + fontend + elementend  )
+        }
+    }
+ function loadTweetsBad(data)
+    {
+        var table = $("#sample");
+        var elementinit = '<tr><td style="border: 1px dashed black; border-right: none" class="left">'
+        var elementmid = '</td><td style="border: 1px dashed black; border-right: none" class="right">'
+        var elementend = '</td></tr>'
+        var font = '<font size="4">'
+        var fontend = '</font>'
+        for (var key in data)
+        {
+            table.append(elementinit + font + 'Negative' + fontend + elementmid + font + data[key]['tweet'] + fontend + elementend  )
+        }
+    }   
+  function loadTweetsSpam(data)
+    {
+        var table = $("#sample");
+        var elementinit = '<tr><td style="border: 1px dashed black; border-right: none" class="left">'
+        var elementmid = '</td><td style="border: 1px dashed black; border-right: none" class="right">'
+        var elementend = '</td></tr>'
+        var font = '<font size="4">'
+        var fontend = '</font>'
+        for (var key in data)
+        {
+            table.append(elementinit + font + 'Spam' + fontend + elementmid + font + data[key]['tweet'] + fontend + elementend  )
+        }
+    }
+    function startFeed()
+        {
+        $.ajax({
+          type: "GET",
+          crossDomain: true,
+          url: "http://localhost:7001/StartFeed",
+          data: { id:"donaldtrump , trump"},
+          dataType: "json",
+          success: function(result){
+
+          },
+          error : function(e){
+                alert(e)
+          }
+  })
+        }
+
+</script>
+
+
+</body>
+
+</html>
+

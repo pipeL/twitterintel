@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>dc.js - Bar Chart Example</title>
+
+  <meta charset="utf-8"></meta>
+  <link rel="stylesheet" type="text/css" href="http://dc-js.github.io/dc.js/css/dc.css" />
+  <script src="http://dc-js.github.io/dc.js/js/d3.js"></script>
+  <script src="http://dc-js.github.io/dc.js/js/crossfilter.js"></script>
+  <script src="http://dc-js.github.io/dc.js/js/dc.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+<input type="text" name="track"/>
+<input type="button" name="answer" value="Show Div" onclick="loadDoc()" />
+
+<div class="container">
+    
+</div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+  function loadDoc() {
+   var data= new Array();
+   var track = $('[name=track]').val();
+   alert(String(track));
+   $.ajax({
+          type: "GET",
+          crossDomain: true,
+          data: {id:track},
+          url: "http://localhost:7001/Learning",
+          dataType: "json",
+          success: function(result){
+                 questionConstructor(result);
+          },
+          error : function(e){
+                alert(e);
+          }
+  })
+  } 
+  
+    
+function questionConstructor(data){
+    for(var key in data){
+        $(".container").append("<p>" + String(data[String(key)]) + "</p>");
+        $(".container").append('<select class="' + String(key) + '">' + "<option>Good</option><option>Bad</option><option>Spam</option></select>");
+    }
+    $(".container").append('<div><input type="button" value="Avaliation Over - Submit" onclick="otherpage()"/></div>' )
+}
+function otherpage(){
+    var array = {}
+
+    
+    
+    $(".container").find("p").each(function(index){
+        array[index]={}
+        array[index]['tweet']=$(this).text();
+    });
+    count = 0
+    $("select").each(function(index){
+       array[index]['answer']=$(this).find('option:selected').text(); 
+    });
+    
+    
+    console.log(array);
+    $.ajax({
+          type: "GET",
+          crossDomain: true,
+          data: {id:JSON.stringify(array)},     // content type sent to server
+          dataType: "json",
+          url: "http://localhost:7001/Results"
+  })
+    
+    window.location.replace("http://127.0.0.1:39219/tweets.html")
+}
+</script>
