@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+  <title>dc.js - Bar Chart Example</title>
+    
+  <meta charset="utf-8"></meta>
+  <link rel="stylesheet" type="text/css" href="http://dc-js.github.io/dc.js/css/dc.css" />
+  <script src="http://dc-js.github.io/dc.js/js/d3.js"></script>
+  <script src="http://dc-js.github.io/dc.js/js/crossfilter.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <script src="http://dc-js.github.io/dc.js/js/dc.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <style type="text/css">
+        select {
+  margin: 5px;
+  width: 200px !important;
+}
+select.custom {
+  padding: 0px;
+}
+    </style>
+</head>
+
+
+<body>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Twitter Graphs</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="start.html">Start New Research</a></li>
+      <li><a href="rankingwords.html">Re-set Word Probability</a></li>
+      <li><a href="topwordsgraphs2.html">Top Two Word</a></li> 
+      <li><a href="topwordsgraphs3.html">Top Three Word</a></li>
+      <li><a href="tweets.html">All tweets Changes Avaliation</a></li>
+        <li><a href="exprimentar.html">Info</a></li>
+    </ul>
+  </div>
+</nav>
+<div id="good"></div>
+<div id="bad"></div>
+<div id="namegood"></div>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var datagood= new Array();
+    var databad = new Array();
+    $.ajax({
+          type: "GET",
+          crossDomain: true,
+          data: {},
+          url: "http://localhost:7000/getInfoTweetsGood",
+          dataType: "json",
+          success: function(result){
+                 for(var key in result){
+                 var aux = result[String(key)];
+                 datagood.push(aux);
+                 }
+                 loadGraphGood(datagood);
+                 loadGraphGoodName(datagood);
+          },
+          error : function(e){
+                alert(e)
+          }
+  })
+    $.ajax({
+          type: "GET",
+          crossDomain: true,
+          data: {},
+          url: "http://localhost:7000/getInfoTweetsBad",
+          dataType: "json",
+          success: function(result){
+                 for(var key in result){
+                 var aux = result[String(key)];
+                 databad.push(aux);
+                 }
+                 loadGraphBad(databad)
+          },
+          error : function(e){
+                alert(e)
+          }
+  })
+  function loadGraphGood(data)
+  {
+  var chart = dc.barChart("#good");
+  var ndx = crossfilter(data);
+  var folDimension = ndx.dimension(function(d) { return d.location;});
+  var folGroup = folDimension.group().reduce(
+
+            function (p, d) {
+                if (d.location in p.locations) p.locations[d.location]++;
+                else {
+                    p.locations[d.location] = 1;
+                    p.locationCount++;
+                }
+                return p;
+            },
+
+            function (p, d) {
+                p.locations[d.location]--;
+                if (p.locations[d.location] === 0) {
+                    delete p.locations[d.location];
+                    p.locationCount--;
+                }
+                return p;
+            },
+
+            function () {
+                return {
+                    locationCount: 0,
+                    locations: {}
+                };
+            });
+
+  chart
+        .width(768)
+        .height(480)
+        .x(d3.scale.ordinal().domain(data.map(function(d) { return d.location;})))
+        .brushOn(false)
+        .yAxisLabel("This is the Bad Chart!")
+        .dimension(folDimension)
+        .group(folGroup)
+        .valueAccessor(function (d) {
+            return d.value.locationCount;
+        })
+        .xUnits(dc.units.ordinal)
+        .on('renderlet', function(chart) {
+            chart.selectAll('rect').on("click", function(d) {
+                console.log("click!", d.x);
+            });
+        });
+  chart.render();
+  }
+    
+    function loadGraphGoodName(data)
+  {
+  var chart = dc.barChart("#namegood");
+  var ndx = crossfilter(data);
+  var folDimension = ndx.dimension(function(d) { return d.name;});
+  var folGroup = folDimension.group().reduce(
+
+            function (p, d) {
+                if (d.name in p.names) p.names[d.name]++;
+                else {
+                    p.names[d.name] = 1;
+                    p.nameCount++;
+                }
+                return p;
+            },
+
+            function (p, d) {
+                p.names[d.name]--;
+                if (p.names[d.name] === 0) {
+                    delete p.names[d.name];
+                    p.nameCount--;
+                }
+                return p;
+            },
+
+            function () {
+                return {
+                    nameCount: 0,
+                    names: {}
+                };
+            });
+
+  chart
+        .width(768)
+        .height(480)
+        .x(d3.scale.ordinal().domain(data.map(function(d) { return d.name;})))
+        .brushOn(false)
+        .yAxisLabel("This is the Bad Chart!")
+        .dimension(folDimension)
+        .group(folGroup)
+        .valueAccessor(function (d) {
+            return d.value.nameCount;
+        })
+        .xUnits(dc.units.ordinal)
+        .on('renderlet', function(chart) {
+            chart.selectAll('rect').on("click", function(d) {
+                console.log("click!", d.x);
+            });
+        });
+  chart.render();
+  }
+    
+    function loadGraphBad(data)
+  {
+  var chart = dc.barChart("#bad");
+  var ndx = crossfilter(data);
+  var folDimension = ndx.dimension(function(d) { return d.location;});
+  var folGroup = folDimension.group().reduce(
+
+            function (p, d) {
+                if (d.location in p.locations) p.locations[d.location]++;
+                else {
+                    p.locations[d.location] = 1;
+                    p.locationCount++;
+                }
+                return p;
+            },
+
+            function (p, d) {
+                p.locations[d.location]--;
+                if (p.locations[d.location] === 0) {
+                    delete p.locations[d.location];
+                    p.locationCount--;
+                }
+                return p;
+            },
+
+            function () {
+                return {
+                    locationCount: 0,
+                    locations: {}
+                };
+            });
+
+  chart
+        .width(768)
+        .height(480)
+        .x(d3.scale.ordinal().domain(data.map(function(d) { return d.location;})))
+        .brushOn(false)
+        .yAxisLabel("This is the Good Chart!")
+        .dimension(folDimension)
+        .group(folGroup)
+        .valueAccessor(function (d) {
+            return d.value.locationCount;
+        })
+        .xUnits(dc.units.ordinal)
+        .on('renderlet', function(chart) {
+            chart.selectAll('rect').on("click", function(d) {
+                console.log("click!", d.x);
+            });
+        });
+  chart.render();
+  }
+
+</script>
+
+
+</body>
+
+</html>

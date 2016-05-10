@@ -1,0 +1,42 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" ng-redirect-to="#/">Home</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#/start">Start New Research</a></li>
+      <li><a href="#/rankingwords">Re-set Word Probability</a></li>
+      <li><a href="#/topwordsgraphs">Top Words</a></li>
+      <li><a href="#/topwordsgraphs2">Top Two Words</a></li> 
+      <li><a href="#/topwordsgraphs3">Top Three Words</a></li>
+      <li class="active"><a href="#/tweets">All tweets/Change Avaliation</a></li>
+        <li><a href="#/exprimentar">Info</a></li>
+    </ul>
+  </div>
+</nav>
+ <form name="form" ng-submit="vm.getalltweets()" role="form">
+    <div class="form-actions">
+<button type="submit" ng-disabled="vm.dataLoading" class="btn btn-primary">Refresh</button>
+    </div>
+    </form>
+    
+      <table id="tabela" class="table table-bordered">
+          <thead>
+              <tr>
+                  <th>Sentiment</th>
+                  <th>Tweet</th>
+            </tr>
+        </thead>
+          <tbody name="unico">
+              
+        </tbody>
+  </table>
+<div style="display:none" id="second">
+<form name="form" ng-submit="vm.startFeed()" role="form">
+        <div id="second">        
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Submit tweets to Calculate Probability</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        </div>
+        </div>
+</form>	

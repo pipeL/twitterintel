@@ -1,0 +1,123 @@
+Beginning task setup
+
+/usr/bin/flock
+Using existing venv: /tmp/petrel-good-2-1462530265/venv
+Task setup took 0 seconds
+Launching: python -m petrel.run kafkaconsumer /home/pipe/twitterintel/topology/TopologyTweetTransformationGOOD/petrel32764_kafkaconsumer.log
+/usr/local/lib/python2.7/dist-packages/petrel-0.9.4.0.3-py2.7.egg/petrel/run.py invoked with the following arguments: ['kafkaconsumer', '/home/pipe/twitterintel/topology/TopologyTweetTransformationGOOD/petrel32764_kafkaconsumer.log']
+python version: 2.7.11
+user=root
+PATH=/tmp/petrel-good-2-1462530265/venv/bin:/root/SimpleScalar/simplesim-3.0:/root/SimpleScalar/bin:/root/SimpleScalar/gcc-2.6.3:/root/SimpleScalar/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/pipe/Downloads/zookeeper-3.4.8/bin:/home/pipe/Downloads/apache-storm-0.9.4/bin
+LD_LIBRARY_PATH=storm-local/supervisor/stormdist/good-2-1462530265/resources/Linux-amd64:storm-local/supervisor/stormdist/good-2-1462530265/resources:/usr/local/lib:/opt/local/lib:/usr/lib
+PYTHON_EGG_CACHE=/tmp/petrel-good-2-1462530265/egg_cache
+[2016-05-06 17:36:01,532][storm][INFO]Tuple profiling enabled. Will log tuple processing times.
+[2016-05-06 17:36:13,804][storm][INFO]Task received setupInfo from Storm: {u'pidDir': u'/home/pipe/storm-local/workers/f2090156-8d1b-430f-a450-fe96d0ca7c17/pids', u'conf': {u'oauth.acess_token': u' 702208758362087425-HZiyl1x7Bh98cQa1WLBDYylyu10Bpl7', u'topology.tuple.serializer': u'backtype.storm.serialization.types.ListDelegateSerializer', u'topology.workers': 1, u'drpc.worker.threads': 64, u'storm.messaging.netty.client_worker_threads': 1, u'supervisor.heartbeat.frequency.secs': 5, u'topology.executor.send.buffer.size': 1024, u'drpc.childopts': u'-Xmx768m', u'nimbus.thrift.port': 6627, u'storm.zookeeper.retry.intervalceiling.millis': 30000, u'storm.local.dir': u'storm-local', u'topology.receiver.buffer.size': 8, u'storm.zookeeper.servers': [u'localhost'], u'oauth.consumer_secret': u'ADf76fi3O1lKMzBxWnjqf93l3GHv28uar3bkblkvyBrAyoA23i', u'transactional.zookeeper.root': u'/transactional', u'drpc.request.timeout.secs': 600, u'topology.skip.missing.kryo.registrations': False, u'worker.heartbeat.frequency.secs': 1, u'zmq.hwm': 0, u'storm.zookeeper.connection.timeout': 15000, u'java.library.path': u'/usr/local/lib:/opt/local/lib:/usr/lib', u'topology.max.error.report.per.interval': 5, u'storm.messaging.netty.server_worker_threads': 1, u'storm.id': u'good-2-1462530265', u'supervisor.worker.start.timeout.secs': 120, u'zmq.threads': 1, u'topology.acker.executors': None, u'storm.messaging.netty.flush.check.interval.ms': 10, u'storm.messaging.netty.transfer.batch.size': 262144, u'topology.max.task.parallelism': None, u'topology.environment': None, u'storm.zookeeper.port': 2181, u'nimbus.childopts': u'-Xmx1024m', u'topology.classpath': None, u'worker.childopts': u'-Xmx768m', u'drpc.queue.size': 128, u'topology.multilang.serializer': u'backtype.storm.multilang.JsonSerializer', u'storm.zookeeper.retry.times': 5, u'nimbus.monitor.freq.secs': 10, u'storm.cluster.mode': u'distributed', u'dev.zookeeper.path': u'/tmp/dev-storm-zookeeper', u'drpc.invocations.port': 3773, u'topology.tasks': None, u'storm.zookeeper.root': u'/storm', u'logviewer.childopts': u'-Xmx128m', u'storm.meta.serialization.delegate': u'backtype.storm.serialization.DefaultSerializationDelegate', u'transactional.zookeeper.port': None, u'topology.worker.receiver.thread.count': 1, u'topology.worker.childopts': None, u'topology.max.spout.pending': None, u'topology.kryo.register': None, u'petrel.host': u'pipe-X550CC', u'nimbus.cleanup.inbox.freq.secs': 600, u'storm.messaging.netty.min_wait_ms': 100, u'nimbus.task.timeout.secs': 30, u'nimbus.thrift.max_buffer_size': 1048576, u'topology.sleep.spout.wait.strategy.time.ms': 1, u'nimbus.reassign': True, u'storm.messaging.transport': u'backtype.storm.messaging.netty.Context', u'logviewer.appender.name': u'A1', u'nimbus.host': u'localhost', u'ui.port': 8080, u'supervisor.slots.ports': [6700, 6701, 6702, 6703], u'nimbus.file.copy.expiration.secs': 600, u'supervisor.monitor.frequency.secs': 3, u'ui.childopts': u'-Xmx768m', u'transactional.zookeeper.servers': None, u'zmq.linger.millis': 5000, u'topology.error.throttle.interval.secs': 10, u'topology.worker.shared.thread.pool.size': 4, u'topology.executor.receive.buffer.size': 1024, u'topology.spout.wait.strategy': u'backtype.storm.spout.SleepSpoutWaitStrategy', u'task.heartbeat.frequency.secs': 3, u'topology.transfer.buffer.size': 1024, u'storm.zookeeper.session.timeout': 20000, u'storm.local.mode.zmq': False, u'topology.stats.sample.rate': 0.05, u'topology.fall.back.on.java.serialization': True, u'supervisor.childopts': u'-Xmx256m', u'topology.enable.message.timeouts': True, u'storm.messaging.netty.max_wait_ms': 1000, u'nimbus.topology.validator': u'backtype.storm.nimbus.DefaultTopologyValidator', u'nimbus.supervisor.timeout.secs': 60, u'topology.disruptor.wait.strategy': u'com.lmax.disruptor.BlockingWaitStrategy', u'storm.messaging.netty.buffer_size': 5242880, u'drpc.port': 3772, u'topology.kryo.factory': u'backtype.storm.serialization.DefaultKryoFactory', u'storm.zookeeper.retry.interval': 1000, u'storm.messaging.netty.max_retries': 300, u'topology.tick.tuple.freq.secs': 30, u'supervisor.enable': True, u'nimbus.task.launch.secs': 120, u'task.refresh.poll.secs': 10, u'topology.message.timeout.secs': 30, u'oauth.acess_token_secret': u'IiNOTfgE3tEZvW2HDQhRKPMoOLU43NXJCXk8maj51SdAT', u'petrel.user': u'root', u'nimbus.inbox.jar.expiration.secs': 3600, u'topology.state.synchronization.timeout.secs': 60, u'topology.name': u'good', u'supervisor.worker.timeout.secs': 30, u'topology.trident.batch.emit.interval.millis': 500, u'topology.builtin.metrics.bucket.size.secs': 60, u'storm.thrift.transport': u'backtype.storm.security.auth.SimpleTransportPlugin', u'logviewer.port': 8000, u'oauth.consumer_key': u'eaFmBSxUveRJfmyZYeabti9Q9', u'topology.kryo.decorators': [], u'topology.debug': False}, u'context': {u'task->component': {u'1': u'CountThreeWords', u'3': u'CountWord', u'2': u'CountTwoWords', u'5': u'ThreeWordDivider', u'4': u'KafkaConsumer', u'7': u'WordDivider', u'6': u'TwoWordDivider', u'8': u'__acker'}, u'taskid': 4}}
+[2016-05-06 17:36:13,822][storm][INFO]Task sent pid to Storm
+[2016-05-06 17:36:14,013][kafka.client][INFO]Broker version identifed as 0.9
+[2016-05-06 17:36:14,015][kafka.consumer.subscription_state][INFO]Updating subscribed topics to: ['goodtopic']
+[2016-05-06 17:36:15,146][kafka.cluster][INFO]Group coordinator for kafka-python-default-group is BrokerMetadata(nodeId=0, host=u'pipe-X550CC', port=9092)
+[2016-05-06 17:36:15,922][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 96) with member_id kafka-python-1.0.2-6559c15f-197e-46f0-a51f-c54e680c5f35
+[2016-05-06 17:36:16,186][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'goodtopic', partition=0)]
+[2016-05-06 17:36:19,242][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:36:22,262][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:36:25,282][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:36:28,343][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:36:31,360][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:36:34,379][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:36:37,437][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:36:40,454][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:36:43,473][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:36:46,492][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:36:49,551][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:36:52,572][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:36:55,588][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:36:58,645][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:01,662][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:04,682][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:07,236][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:10,289][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:13,304][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:16,320][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:19,377][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:22,396][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:25,411][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:28,472][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:31,486][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:34,507][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:37,566][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:40,580][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:43,597][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:46,612][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:49,667][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:52,370][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:55,387][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:37:58,442][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:01,461][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:04,478][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:07,495][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:10,553][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:13,566][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:16,584][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:19,642][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:22,664][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:25,677][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:28,231][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:31,284][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:34,300][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:37,318][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:40,376][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:43,393][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:46,410][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:49,468][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:52,487][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:55,506][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:38:58,566][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:01,582][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:04,600][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:07,618][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:10,677][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:13,698][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:16,715][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:19,268][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:22,289][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:25,304][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:28,322][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:31,380][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:34,399][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:37,414][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:40,470][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:43,486][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:46,505][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:49,559][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:52,576][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:55,597][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:39:58,614][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:01,674][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:04,692][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:07,711][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:10,266][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:13,328][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:16,347][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:19,407][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:22,423][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:25,438][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:28,454][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:31,512][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:34,532][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:37,549][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:40,604][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:43,623][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:46,643][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:49,702][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:52,718][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:55,733][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:40:58,247][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:41:01,305][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:41:04,321][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:41:07,378][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:41:10,396][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:41:13,410][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:41:16,464][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:41:19,479][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:41:22,498][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-06 17:41:25,553][kafka.coordinator][INFO]Heartbeat successful

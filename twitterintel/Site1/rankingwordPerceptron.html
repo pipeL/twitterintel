@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>dc.js - Bar Chart Example</title>
+    
+  <meta charset="utf-8"></meta>
+  <link rel="stylesheet" type="text/css" href="http://dc-js.github.io/dc.js/css/dc.css" />
+  <script src="http://dc-js.github.io/dc.js/js/d3.js"></script>
+  <script src="http://dc-js.github.io/dc.js/js/crossfilter.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <script src="http://dc-js.github.io/dc.js/js/dc.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <style type="text/css">
+        select {
+  margin: 5px;
+  width: 200px !important;
+}
+select.custom {
+  padding: 0px;
+}
+    </style>
+</head>
+
+
+<body background="../images/1.jpg">
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Twitter Graphs</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="start.html">Start New Research</a></li>
+      <li><a href="rankingwords.html">Re-set Word Probability</a></li>
+      <li><a href="topwordsgraphs2.html">Top Two Word</a></li> 
+      <li><a href="topwordsgraphs3.html">Top Three Word</a></li>
+      <li><a href="tweets.html">All tweets Changes Avaliation</a></li>
+        <li><a href="exprimentar.html">Info</a></li>
+    </ul>
+  </div>
+</nav>
+    <input class="btn btn-primary" type="button" name="answer" value="Refresh" onclick="loadDoc()" />
+    
+      <table id="tabela" class="table table-bordered">
+          <thead>
+              <tr>
+                  <th>Type</th>
+                  <th>Probability</th>
+                  <th>Word</th>
+            </tr>
+        </thead>
+          <tbody name="unico">
+              
+        </tbody>
+  </table>
+<div style="display:none" id="second">
+        <input name="track" type="email" class="form-control" id="exampleInputEmail1" placeholder="This time give us a vague word about the topic                      Ex:trump,realdonaldtrump   E:CristianoRonaldo,LionelMessi, messi,cr7"/>
+    
+    <input name="number" type="text" class="form-control" id="exampleInputEmail1" placeholder="Number of tweets you want to analyze"/>
+    
+    <input class="btn btn-primary" type="button" name="answer" value="Insert Probability table" onclick="submitData()" />
+        </div>	
+    
+<script type="text/javascript">
+function loadDoc() {
+   var data= new Array()
+
+   
+   $.ajax({
+       
+          type: "GET",
+          crossDomain: true,
+          url: "http://localhost:7000/getWordProbPerceptronGood",
+          dataType: "json",
+          success: function(result){
+                 loadWordsGood(result); 
+          },
+          error : function(e){
+                alert(e)
+          }
+  })
+   $.ajax({
+       
+          type: "GET",
+          crossDomain: true,
+          url: "http://localhost:7000/getWordProbPerceptronBad",
+          dataType: "json",
+          success: function(result){
+                 loadWordsBad(result); 
+          },
+          error : function(e){
+                alert(e)
+          }
+  })
+   
+   $("#second").show()
+    }
+    
+function sendData(data){
+    $.ajax({
+          type: "GET",
+          crossDomain: true,
+          data: {id:JSON.stringify(data)},     // content type sent to server
+          dataType: "json",
+          url: "http://localhost:7000/StartFeedPerceptron",
+          success: function(result){ window.location.replace("http://topwordsgraphs.html")
+          },
+          error : function(e){ window.location.replace("http://topwordsgraphs.html")
+          }
+  })
+
+}  
+function submitData(data)
+    {
+        var arrayGood = {};
+        var arrayBad = {};
+        var arraySpam = {};
+        var toSend = {};
+        $("#tabela").find('[name=row]').each(function(index){
+        if($(this).find('[name=type]').text() == 'Good')
+        {
+            arrayGood[$(this).find('[name=word]').text()] =$(this).find('[name=prob]').val();
+        }
+        if($(this).find('[name=type]').text() == 'Bad')
+        {
+            arrayBad[$(this).find('[name=word]').text()] =$(this).find('[name=prob]').val();
+        }
+        if($(this).find('[name=type]').text() == 'Spam')
+        {
+            arraySpam[$(this).find('[name=word]').text()] =$(this).find('[name=prob]').val();
+        }
+        })
+        var track = $('[name=track]').val();
+        var number = $('[name=number]').val();
+        toSend[0]=track;
+        toSend[1]= parseInt(number);
+        toSend[2]=arrayGood;
+        toSend[3]= arrayBad;
+        toSend[4]=arraySpam;
+        sendData(toSend);
+        
+    }
+function loadWordsGood(data)
+    {
+    var button = '<tr name="row"><td><h3 name ="type">Good</h3></td><td><textarea name="prob" style="width: 100%; height: 100%; border:None">';
+    for(var key in data){
+        
+        $('[name=unico]').append(button + data[String(key)] + '</textarea></ul></div></td>' + '<td><h3 name="word">' + String(key) + '</h3></td></tr>');
+        
+        //$(".tabela").append('<select class="' + String(key) + '">' + "<option>Good</option><option>Bad</option><option>Spam</option></select>");
+    }
+    }
+function loadWordsBad(data)
+    {
+    
+        
+        var button = '<tr name="row"><td><h3 name ="type">Bad</h3></td><td><textarea name="prob" style="width: 100%; height: 100%; border:None">';
+    for(var key in data){
+        
+        $('[name=unico]').append(button + data[String(key)] + '</textarea></ul></div></td>' + '<td><h3 name="word">' + String(key) + '</h3></td></tr>');
+        
+        //$(".tabela").append('<select class="' + String(key) + '">' + "<option>Good</option><option>Bad</option><option>Spam</option></select>");
+    }
+    }
+    function loadWordsSpam(data)
+    {
+    
+        
+        var button = '<tr name="row"><td><h3 name ="type">Spam</h3></td><td><textarea name="prob" style="width: 100%; height: 100%; border:None">';
+    for(var key in data){
+        
+        $('[name=unico]').append(button + data[String(key)] + '</textarea></ul></div></td>' + '<td><h3  name="word">' + String(key) + '</h3></td></tr>');
+        
+        //$(".tabela").append('<select class="' + String(key) + '">' + "<option>Good</option><option>Bad</option><option>Spam</option></select>");
+    }
+    }
+</script>
+
+
+</body>
+
+</html>

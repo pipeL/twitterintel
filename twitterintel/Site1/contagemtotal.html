@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>dc.js - Bar Chart Example</title>
+
+  <meta charset="utf-8"></meta>
+  <link rel="stylesheet" type="text/css" href="http://dc-js.github.io/dc.js/css/dc.css" />
+  <script src="http://dc-js.github.io/dc.js/js/d3.js"></script>
+  <script src="http://dc-js.github.io/dc.js/js/crossfilter.js"></script>
+  <script src="http://dc-js.github.io/dc.js/js/dc.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <div id="good"></div>
+        
+    </div>
+
+<input type="button" name="answer" value="Show Div" onclick="loadDoc()" />
+</body>
+
+</html>
+
+<script type="text/javascript">
+  function loadDoc() {
+   var data= new Array()
+   
+   $.ajax({
+          type: "GET",
+          crossDomain: true,
+          url: "http://localhost:7000/getTotal",
+          dataType: "json",
+          success: function(result){
+                 for(var key in result){
+                 var aux = result[String(key)];
+                 data.push(aux);
+                 }
+                 loadPieGraph(data)
+
+          },
+          error : function(e){
+                alert(e)
+          }
+  })
+  } 
+  
+
+  
+
+function loadPieGraph(data){
+  var chart = dc.pieChart("#good");
+  var composite = dc.compositeChart("#goodComposite");
+
+  var ndx           = crossfilter(data),
+      runDimension  = ndx.dimension(function(d) {return d.tipo;})
+      speedSumGroup = runDimension.group().reduceSum(function(d) {return d.contagem;});
+
+  chart
+  .width(768)
+  .height(480)
+  .slicesCap(4)
+  .innerRadius(100)
+  .dimension(runDimension)
+  .group(speedSumGroup)
+  .legend(dc.legend())
+  .on('pretransition', function(chart) {
+  chart.selectAll('text.pie-slice').text(function(d) {
+  return d.data.key + ' ' + dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+        })
+    });
+
+  chart.render();
+  }
+
+  
+</script>

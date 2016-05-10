@@ -1,0 +1,38 @@
+element {
+
+    width: 109px;
+
+}
+.JColResizer td, .JColResizer th {
+
+    overflow: hidden;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+}
+th {
+
+    background-image: url(../img/th.png);
+    height: 30px;
+    background-repeat: no-repeat;
+    color: #FFF;
+    text-shadow: #012b4d 2px 2px 2px;
+    text-align: center;
+
+}
+* {
+
+    cursor: default;
+    margin: 0;
+    padding: 0;
+
+}
+body {
+
+    font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+    font-size: 13px;
+    text-align: center;
+
+}
+
+

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>dc.js - Bar Chart Example</title>
+
+  <meta charset="utf-8"></meta>
+  <link rel="stylesheet" type="text/css" href="http://dc-js.github.io/dc.js/css/dc.css" />
+  <script src="http://dc-js.github.io/dc.js/js/d3.js"></script>
+  <script src="http://dc-js.github.io/dc.js/js/crossfilter.js"></script>
+  <script src="http://dc-js.github.io/dc.js/js/dc.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <div id="good"></div>
+        <div id="bad"></div>
+        <div id="spam"></div>
+    
+    </div>
+
+<input type="button" name="answer" value="Show Div" onclick="loadDoc()" />
+</body>
+
+</html>
+
+<script type="text/javascript">
+  function loadDoc() {
+   
+   var datagood= new Array();
+   var databad= new Array();
+   var dataspam= new Array();
+   
+   $.ajax({
+          type: "GET",
+          crossDomain: true,
+          data: {id:"40"},
+          url: "http://localhost:7000/getTopThreeWordSpam",
+          dataType: "json",
+          success: function(result){
+                 for(var key in result){
+                 var aux = result[String(key)];
+                 dataspam.push(aux);
+                 }
+                 loadGraphSpam(dataspam)
+
+          },
+          error : function(e){
+                alert(e)
+          }
+  })
+   $.ajax({
+          type: "GET",
+          crossDomain: true,
+          data: {id:"40"},
+          url: "http://localhost:7000/getTopThreeWordGood",
+          dataType: "json",
+          success: function(result){
+                 for(var key in result){
+                 var aux = result[String(key)];
+                 datagood.push(aux);
+                 }
+                 loadGraphGood(datagood)
+
+          },
+          error : function(e){
+                alert(e)
+          }
+  })
+   $.ajax({
+          type: "GET",
+          crossDomain: true,
+          data: {id:"40"},
+          url: "http://localhost:7000/getTopThreeWordBad",
+          dataType: "json",
+          success: function(result){
+                 for(var key in result){
+                 var aux = result[String(key)];
+                 databad.push(aux);
+                 }
+                 loadGraphBad(databad)
+
+          },
+          error : function(e){
+                alert(e)
+          }
+  })
+  } 
+  
+
+  
+
+function loadGraphGood(data)
+  {
+  var chart = dc.barChart("#good");
+  var ndx = crossfilter(data);
+  var folDimension = ndx.dimension(function(d) { return d.word;});
+  var folGroup = folDimension.group().reduceSum(function(d) { return +d.count;});
+
+  chart
+        .width(768)
+        .height(480)
+        .x(d3.scale.ordinal().domain(data.map(function(d) { return d.word;})))
+        .brushOn(false)
+        .yAxisLabel("This is the Good Chart!")
+        .dimension(folDimension)
+        .group(folGroup)
+        .xUnits(dc.units.ordinal)
+        .on('renderlet', function(chart) {
+            chart.selectAll('rect').on("click", function(d) {
+                console.log("click!", d.x);
+            });
+        });
+  chart.render();
+  }
+    
+    
+    
+function loadGraphBad(data)
+  {
+  var chart = dc.barChart("#bad");
+  var ndx = crossfilter(data);
+  var folDimension = ndx.dimension(function(d) { return d.word;});
+  var folGroup = folDimension.group().reduceSum(function(d) { return +d.count;});
+
+  chart
+        .width(768)
+        .height(480)
+        .x(d3.scale.ordinal().domain(data.map(function(d) { return d.word;})))
+        .brushOn(false)
+        .yAxisLabel("This is the BAD Chart!")
+        .dimension(folDimension)
+        .group(folGroup)
+        .xUnits(dc.units.ordinal)
+        .on('renderlet', function(chart) {
+            chart.selectAll('rect').on("click", function(d) {
+                console.log("click!", d.x);
+            });
+        });
+  chart.render();
+  }
+    
+function loadGraphSpam(data)
+  {
+  var chart = dc.barChart("#spam");
+  var ndx = crossfilter(data);
+  var folDimension = ndx.dimension(function(d) { return d.word;});
+  var folGroup = folDimension.group().reduceSum(function(d) { return +d.count;});
+
+  chart
+        .width(768)
+        .height(480)
+        .x(d3.scale.ordinal().domain(data.map(function(d) { return d.word;})))
+        .brushOn(false)
+        .yAxisLabel("This is the SPAM Chart!")
+        .dimension(folDimension)
+        .group(folGroup)
+        .xUnits(dc.units.ordinal)
+        .on('renderlet', function(chart) {
+            chart.selectAll('rect').on("click", function(d) {
+                console.log("click!", d.x);
+            });
+        });
+  chart.render();
+  }
+
+  
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+</script>
+
+
+</body>
+
+</html>
