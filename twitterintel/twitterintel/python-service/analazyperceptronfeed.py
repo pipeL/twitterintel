@@ -55,6 +55,7 @@ class TwitterListener(tweepy.StreamListener):
             #print('RealTweet: ' + texto + '\n')
             if guessgood>guessbad: 
                 #print('Positive: ' + texto + '\n')
+                texto = self.user+'-'+texto
                 self.producer.send(self.topicgood,texto)
                 saveTweet('pos',tweet,self.user)
                 saveLocation('pos',tweet,self.user)
@@ -62,6 +63,7 @@ class TwitterListener(tweepy.StreamListener):
                 fil.close()
             else:
                 #print('Negative: ' + texto + '\n')
+                texto = self.user+'-'+texto
                 self.producer.send(self.topicbad,texto)
                 saveTweet('neg',tweet,self.user)
                 saveLocation('neg',tweet,self.user)

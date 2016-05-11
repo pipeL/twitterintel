@@ -8,6 +8,8 @@ import sys
 import time
 from bson.objectid import ObjectId
 from kafka import KafkaProducer
+
+from instantfeed import InstantFeed as feed
 from learningonline import Learning as learn
 
 from analazyperceptron import AnalyzerPerceptron
@@ -17,7 +19,9 @@ from analyzefeed import Learning as analy
 from analyze import Analyzer
 
 
-urls= ( '/Learning', 'Learning',
+urls= ( '/InstantFeed','InstantFeed',
+        '/GetDataInstantFeed','GetDataInstantFeed',
+        '/Learning', 'Learning',
         '/getTotal','getTotal',
         '/getTweetsGood','getTweetsGood',
         '/getTweetsBad','getTweetsBad',
@@ -47,6 +51,75 @@ urls= ( '/Learning', 'Learning',
         '/StartFeedModifie','StartFeedModifie',
 	'/Contact','Contact'
       )
+
+
+class InstantFeed:
+    def GET(self):
+        web.header('Access-Control-Allow-Origin',      '*')
+        web.header('Access-Control-Allow-Credentials', 'true')
+        web.header('Content-Type', 'application/json')
+        db = pymongo.MongoClient()
+        user_data= web.input(id={})
+        data = user_data.id
+        data = json.loads(str(data))
+        user = str(data[2])
+        number = int(data[1])
+        aux = 'INSTANT'+user
+        db.drop_database(aux)
+        self.aux = feed(str(data[0]),number,user)
+        db.LOGIN.login.update({"_id":int(user)},{"$set": {"status":"true"}},upsert=True)
+        self.aux.start()
+        db.LOGIN.login.update({"_id":int(user)},{"$set": {"status":"false"}},upsert=True)
+        send={}
+        send[0]='true'
+        return json.dumps(send)
+
+class GetDataInstantFeed:
+    def GET(self):
+        web.header('Access-Control-Allow-Origin',      '*')
+        web.header('Access-Control-Allow-Credentials', 'true')
+        web.header('Content-Type', 'application/json')
+        db=pymongo.MongoClient()
+        user_data=web.input(id="no data")
+        user = str(user_data.id)
+        aux = 'INSTANT'+user
+        send = {}
+        data = db[aux].tweet.find()
+        count = 0
+        send['tweet']={}
+        send['word']={}
+        send['twoword']={}
+        send['threeword']={}
+        for line in data:
+            send['tweet'][count]=line['tweet']
+            count+=1
+        count=0
+        data = db[aux].wordcole.find()
+        for line in data:
+            send['word'][count]={}
+            send['word'][count]['count']=line['count']
+            send['word'][count]['word']=line['word']
+            count+=1
+        count=0
+        data = db[aux].twowordcole.find()
+        for line in data:
+            send['twoword'][count]={}
+            send['twoword'][count]['count']=line['count']
+            send['twoword'][count]['word']=line['word']
+            count+=1
+        count=0
+        data = db[aux].threewordcole.find()
+        for line in data:
+            send['threeword'][count]={}
+            send['threeword'][count]['count']=line['count']
+            send['threeword'][count]['word']=line['word']
+        
+        send = json.dumps(send)
+        return send
+
+
+
+
 
 #First class to be called
 #Learning class = get a feed of 100 tweets based on topic passed as id

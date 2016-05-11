@@ -57,6 +57,11 @@
                 css: 'topwordsgraphs/topwordsgraphs.css',
                 controllerAs: 'vm'
             })
+            .when('/instantfeed', {
+                controller: 'InstantfeedController',
+                templateUrl: 'instantfeed/instantfeed.view.html',
+                controllerAs: 'vm'
+            })
             .when('/topwordsgraphs2', {
                 controller: 'TopwordsgraphsController2',
                 templateUrl: 'topwordsgraphs2/topwordsgraphs.view.html',

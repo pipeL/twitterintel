@@ -20,9 +20,9 @@ class WordCountBolt(BasicBolt):
 
     #For each word emitted by WordDivider process will execute
     #Each time will increment the word in MONGODB 
-    #DB = SPAM Collection = wordcole
+    #DB = GOOD Collection = wordcole
     def process(self,tup):
-        aux = 'SPAM'+tup.values[1]
+        aux='SPAM'+tup.values[1]
         self.db[aux].wordcole.update(
             {'word':str(tup.values[0])},
             {"$inc": { 'count': 1}},

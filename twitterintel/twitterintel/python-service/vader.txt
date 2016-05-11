@@ -118448,3 +118448,69 @@ Total guess:-17.6750674389 1-@lydia_pasteris Never Trump Pouters. Reckless about
 https://t.co/mzuInk3vKM
 
 
+Neg:0.164
+Pos:0.198
+Neutro:0.638
+Total guess:11.7980800265 1-Trump readies for the big win. Christie, Lewandowski &amp; Carson help on transition &amp; VP search. The blind leading the blind. The eyes have it.
+
+
+Neg:0.0
+Pos:0.0
+Neutro:1.0
+Total guess:-0.0 1-@caylinnx3 trump/palin 2016
+
+
+Neg:0.0
+Pos:0.25
+Neutro:0.75
+Total guess:11.7980800265 1-RT @Workers4Trump: The Republicans GOP have been dealt a Royal Flush and still want to fold.
+
+It's okay though, Trump will win with any han
+
+
+Neg:0.417
+Pos:0.0
+Neutro:0.583
+Total guess:5.99967464516 1-Paul Ryan is stuck in a Trump trap https://t.co/AYhiD8FFCX
+
+
+Neg:0.0
+Pos:0.352
+Neutro:0.648
+Total guess:11.7980800265 1-RT @WashBlade: Sanders, Trump win West Virginia https://t.co/NjxCnxhncW
+
+
+Neg:0.133
+Pos:0.0
+Neutro:0.867
+Total guess:11.7980800265 1-"Hes not the best-case scenario, John, thats my answer. Donald Trump is a fact-bending loose cannon..." https://t.co/gNfHyl7PFq
+
+
+Neg:0.0
+Pos:0.0
+Neutro:1.0
+Total guess:11.7980800265 1-RT @IremTuncel: Donald Trump #DonaldTrump #WAPrimary #Kentucky #KY #OR #WA #KYPrimary #ORPrimary #Washington #California #NewJersey https:/
+
+
+Neg:0.0
+Pos:0.133
+Neutro:0.867
+Total guess:35.3942400796 1-Donald Trump thinks Donald Trump deserves credit for Budweiser naming its beer America: 
+Donald Trump has suc... https://t.co/9J7oC8kJ1e
+
+
+Neg:0.238
+Pos:0.0
+Neutro:0.762
+Total guess:11.7980800265 1-Donald Trump Just Revealed How Hes Going To ATTACK Hillary Clinton
+Probably tracking sprints of dirt and the fountain of improper account
+
+
+Neg:0.394
+Pos:0.0
+Neutro:0.606
+Total guess:19.8979387313 1-RT @AndrewMichael_M: trump: Blah, blah, blah... Crazy Bernie 
+
+USA: #FeelTheBern https://t.co/k3GW5Zz7sx
+
+

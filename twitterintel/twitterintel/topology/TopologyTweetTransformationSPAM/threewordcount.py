@@ -21,8 +21,8 @@ class ThreeWordCountBolt(BasicBolt):
         #if tup.is_tick_tuple():
             #self.emitCurrentWindowCounts()
         #else:
-        aux = 'SPAM'+tup.values[1]
-        self.db[aux].wordcole.update(
+        aux='SPAM'+tup.values[1]
+        self.db[aux].threewordcole.update(
             {'word':str(tup.values[0])},
             {"$inc": { 'count': 1}},
             upsert=True

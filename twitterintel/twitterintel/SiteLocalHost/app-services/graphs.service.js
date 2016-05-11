@@ -23,7 +23,75 @@
         service.GetAllInfo =GetAllInfo;
         service.GetProbPerce=GetProbPerce;
         service.CheckStatus=CheckStatus;
+        service.InstantFeed=InstantFeed;
+        service.GetData=GetData;
         return service;
+        
+        
+        function InstantFeed(track,number,callback)
+        {
+            var send = new Array();
+            var response ;
+            var deferred = $q.defer();
+            send[0] = track;
+            send[1] = number;
+            send[2]= $rootScope.globals.currentUser.id;
+            $.ajax({
+                  type: "GET",
+                  crossDomain: true,
+                  data: {id:JSON.stringify(send)},
+                  url: "http://localhost:7000/InstantFeed",
+                  dataType: "json",
+                  success: function(result){
+                    if (result['0']=='false')
+                    {
+                        alert('Feed didnt terminate well, maybe not a usually keyword');
+                        response = {success : false};
+                        $rootScope.$apply(function(){
+                            callback(response);
+                        });
+                    }
+                    else{
+                        $rootScope.tweets=result;
+                        response = {success : true};
+                        $rootScope.$apply(function(){
+                            callback(response);
+                        });
+                    }
+                  },
+                  error : function(e){
+                        alert(e);
+                  }
+          })
+           return deferred.promise;
+          } 
+        
+        
+        function GetData(callback){
+           var response = {success : false};
+           var deferred = $q.defer();
+           var user = $rootScope.globals.currentUser.id;
+           var getdata=$.ajax({
+                  type: "GET",
+                  crossDomain: true,
+                  data:{id: user},
+                  url: "http://localhost:7000/GetDataInstantFeed",
+                  dataType: "json",
+                  success: function(result){
+                         response = {success : true};
+                         $rootScope.data=result; 
+                  },
+                  error : function(e){
+                      
+                        response = {success : false};
+                  }
+          })
+           
+           
+           $.when(getdata).done(function(getdata){
+                                                            callback(response);
+                                                            })
+        }
 
         function Learning(track , number , callback) {
            var send = new Array()

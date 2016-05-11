@@ -142,8 +142,8 @@ function loadGraphGood(data)
             });
 
   chart
-        .width(400)
-        .height(200)
+        .width(500)
+        .height(300)
         .x(d3.scale.ordinal().domain(data.map(function(d) { return d.location;})))
         .brushOn(false)
         .yAxisLabel("This is the Bad Chart!")
@@ -155,8 +155,10 @@ function loadGraphGood(data)
         .xUnits(dc.units.ordinal)
         .on('renderlet', function(chart) {
             chart.selectAll('rect').on("click", function(d) {
-                console.log("click!", d.x);
-            });
+                console.log("click!", d.x);});
+            chart.selectAll("g.x text").attr('dx', '-30').attr(
+  'dy', '-7').attr('transform', "rotate(90)");
+            
         });
   chart.render();
   }
@@ -194,8 +196,8 @@ function loadGraphGood(data)
             });
 
   chart
-        .width(400)
-        .height(200)
+        .width(500)
+        .height(300)
         .x(d3.scale.ordinal().domain(data.map(function(d) { return d.name;})))
         .brushOn(false)
         .yAxisLabel("This is the Bad Chart!")
@@ -207,8 +209,10 @@ function loadGraphGood(data)
         .xUnits(dc.units.ordinal)
         .on('renderlet', function(chart) {
             chart.selectAll('rect').on("click", function(d) {
-                console.log("click!", d.x);
-            });
+                console.log("click!", d.x);});
+            chart.selectAll("g.x text").attr('dx', '-30').attr(
+  'dy', '-7').attr('transform', "rotate(90)");
+            
         });
   chart.render();
   }
@@ -246,8 +250,8 @@ function loadGraphGood(data)
             });
 
   chart
-        .width(400)
-        .height(200)
+        .width(500)
+        .height(300)
         .x(d3.scale.ordinal().domain(data.map(function(d) { return d.location;})))
         .brushOn(false)
         .yAxisLabel("This is the Good Chart!")
@@ -259,8 +263,10 @@ function loadGraphGood(data)
         .xUnits(dc.units.ordinal)
         .on('renderlet', function(chart) {
             chart.selectAll('rect').on("click", function(d) {
-                console.log("click!", d.x);
-            });
+                console.log("click!", d.x);});
+            chart.selectAll("g.x text").attr('dx', '-30').attr(
+  'dy', '-7').attr('transform', "rotate(90)");
+            
         });
   chart.render();
   }
