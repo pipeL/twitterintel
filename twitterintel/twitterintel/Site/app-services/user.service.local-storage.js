@@ -60,7 +60,7 @@
                               type: "GET",
                               crossDomain: true,
                               data: {id:JSON.stringify(send)},
-                              url: "http://31.193.129.198:7000/Register",
+                              url: "http://localhost:7000/Register",
                               dataType: "json",
                               success: function(result){
                                      if(result['0']=="True"){

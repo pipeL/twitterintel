@@ -23,7 +23,75 @@
         service.GetAllInfo =GetAllInfo;
         service.GetProbPerce=GetProbPerce;
         service.CheckStatus=CheckStatus;
+        service.InstantFeed=InstantFeed;
+        service.GetData=GetData;
         return service;
+        
+        
+        function InstantFeed(track,number,callback)
+        {
+            var send = new Array();
+            var response ;
+            var deferred = $q.defer();
+            send[0] = track;
+            send[1] = number;
+            send[2]= $rootScope.globals.currentUser.id;
+            $.ajax({
+                  type: "GET",
+                  crossDomain: true,
+                  data: {id:JSON.stringify(send)},
+                  url: "http://localhost:7000/InstantFeed",
+                  dataType: "json",
+                  success: function(result){
+                    if (result['0']=='false')
+                    {
+                        alert('Feed didnt terminate well, maybe not a usually keyword');
+                        response = {success : false};
+                        $rootScope.$apply(function(){
+                            callback(response);
+                        });
+                    }
+                    else{
+                        $rootScope.tweets=result;
+                        response = {success : true};
+                        $rootScope.$apply(function(){
+                            callback(response);
+                        });
+                    }
+                  },
+                  error : function(e){
+                        alert(e);
+                  }
+          })
+           return deferred.promise;
+          } 
+        
+        
+        function GetData(callback){
+           var response = {success : false};
+           var deferred = $q.defer();
+           var user = $rootScope.globals.currentUser.id;
+           var getdata=$.ajax({
+                  type: "GET",
+                  crossDomain: true,
+                  data:{id: user},
+                  url: "http://localhost:7000/GetDataInstantFeed",
+                  dataType: "json",
+                  success: function(result){
+                         response = {success : true};
+                         $rootScope.data=result; 
+                  },
+                  error : function(e){
+                      
+                        response = {success : false};
+                  }
+          })
+           
+           
+           $.when(getdata).done(function(getdata){
+                                                            callback(response);
+                                                            })
+        }
 
         function Learning(track , number , callback) {
            var send = new Array()
@@ -37,7 +105,7 @@
                   type: "GET",
                   crossDomain: true,
                   data: {id:JSON.stringify(send)},
-                  url: "http://31.193.129.198:7000/Learning",
+                  url: "http://localhost:7000/Learning",
                   dataType: "json",
                   success: function(result){
                     if (result['0']=='false')
@@ -72,7 +140,7 @@
           crossDomain: true,
           data: {id:JSON.stringify(array)},     // content type sent to server
           dataType: "json",
-          url: "http://31.193.129.198:7000/Results",
+          url: "http://localhost:7000/Results",
           success: function(result){
                  response = {success : true}
                     $rootScope.$apply(function(){
@@ -97,7 +165,7 @@
           crossDomain: true,
           data: {id:user},     // content type sent to server
           dataType: "json",
-          url: "http://31.193.129.198:7000/CheckStatus",
+          url: "http://localhost:7000/CheckStatus",
           success: function(result){
                  $rootScope.globals.currentUser.status = result['0']; 
                  response = {success : true}
@@ -122,7 +190,7 @@
                   type: "GET",
                   crossDomain: true,
                   data:{id: user},
-                  url: "http://31.193.129.198:7000/getWordProbGood",
+                  url: "http://localhost:7000/getWordProbGood",
                   dataType: "json",
                   success: function(result){
                          response = {success : true};
@@ -138,7 +206,7 @@
                   type: "GET",
                   crossDomain: true,
                   data:{id: user},
-                  url: "http://31.193.129.198:7000/getWordProbBad",
+                  url: "http://localhost:7000/getWordProbBad",
                   dataType: "json",
                   success: function(result){
                          response = {success : true};
@@ -153,7 +221,7 @@
                   type: "GET",
                   crossDomain: true,
                   data:{id: user},
-                  url: "http://31.193.129.198:7000/getWordProbSpam",
+                  url: "http://localhost:7000/getWordProbSpam",
                   dataType: "json",
                   success: function(result){
                          response = {success : true};
@@ -175,7 +243,7 @@
           crossDomain: true,
           data: {id:JSON.stringify(data)},     // content type sent to server
           dataType: "json",
-          url: "http://31.193.129.198:7000/StartFeedModifie",
+          url: "http://localhost:7000/StartFeedModifie",
           success: function(result){
                 if(result['0']=='true'){
                     alert('Feed is Done');
@@ -201,7 +269,7 @@
           crossDomain: true,
           data: {id:JSON.stringify(data)},     // content type sent to server
           dataType: "json",
-          url: "http://31.193.129.198:7000/StartFeedPerceptron",
+          url: "http://localhost:7000/StartFeedPerceptron",
           success: function(result){
                 if(result['0']=='true'){
                     alert('Feed is Done');
@@ -227,7 +295,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTotal",
+          url: "http://localhost:7000/getTotal",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -247,7 +315,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTopWordGood",
+          url: "http://localhost:7000/getTopWordGood",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -266,7 +334,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTopWordBad",
+          url: "http://localhost:7000/getTopWordBad",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -285,7 +353,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTopWordSpam",
+          url: "http://localhost:7000/getTopWordSpam",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -318,7 +386,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTotal",
+          url: "http://localhost:7000/getTotal",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -338,7 +406,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTopTwoWordGood",
+          url: "http://localhost:7000/getTopTwoWordGood",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -357,7 +425,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTopTwoWordBad",
+          url: "http://localhost:7000/getTopTwoWordBad",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -376,7 +444,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTopTwoWordSpam",
+          url: "http://localhost:7000/getTopTwoWordSpam",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -409,7 +477,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTotal",
+          url: "http://localhost:7000/getTotal",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -429,7 +497,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTopThreeWordGood",
+          url: "http://localhost:7000/getTopThreeWordGood",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -448,7 +516,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTopThreeWordBad",
+          url: "http://localhost:7000/getTopThreeWordBad",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -467,7 +535,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTopThreeWordSpam",
+          url: "http://localhost:7000/getTopThreeWordSpam",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -503,7 +571,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTweetsBad",
+          url: "http://localhost:7000/getTweetsBad",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -521,7 +589,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTweetsGood",
+          url: "http://localhost:7000/getTweetsGood",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -541,7 +609,7 @@
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getTweetsSpam",
+          url: "http://localhost:7000/getTweetsSpam",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -577,7 +645,7 @@ function GetProbPerce(callback){
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getWordProbPerceptronGood",
+          url: "http://localhost:7000/getWordProbPerceptronGood",
           dataType: "json",
           success: function(result){
                  response = {success : true};
@@ -592,7 +660,7 @@ function GetProbPerce(callback){
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getWordProbPerceptronBad",
+          url: "http://localhost:7000/getWordProbPerceptronBad",
           dataType: "json",
           success: function(result){
                  response = {success : true};
@@ -620,7 +688,7 @@ function GetAllInfo(callback){
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getInfoTweetsGood",
+          url: "http://localhost:7000/getInfoTweetsGood",
           dataType: "json",
           success: function(result){
                  for(var key in result){
@@ -638,7 +706,7 @@ function GetAllInfo(callback){
           type: "GET",
           crossDomain: true,
           data:{id: user},
-          url: "http://31.193.129.198:7000/getInfoTweetsBad",
+          url: "http://localhost:7000/getInfoTweetsBad",
           dataType: "json",
           success: function(result){
                  for(var key in result){

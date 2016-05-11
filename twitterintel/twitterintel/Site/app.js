@@ -57,6 +57,11 @@
                 css: 'topwordsgraphs/topwordsgraphs.css',
                 controllerAs: 'vm'
             })
+            .when('/instantfeed', {
+                controller: 'InstantfeedController',
+                templateUrl: 'instantfeed/instantfeed.view.html',
+                controllerAs: 'vm'
+            })
             .when('/topwordsgraphs2', {
                 controller: 'TopwordsgraphsController2',
                 templateUrl: 'topwordsgraphs2/topwordsgraphs.view.html',
@@ -79,11 +84,6 @@
                 templateUrl: 'tweets/tweets.view.html',
                 controllerAs: 'vm'
             })
-            .when('/contact', {
-                controller: 'ContactController',
-                templateUrl: 'contact/contact.view.html',
-                controllerAs: 'vm'
-            })
  
             .otherwise({ redirectTo: '/login' });
     }
@@ -103,7 +103,7 @@
             });
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
-            var restrictedPage = $.inArray($location.path(), ['/login', '/register', '/contact']) === -1;
+            var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
             var loggedIn = $rootScope.globals.currentUser;
             if (restrictedPage && !loggedIn) {
                 $location.path('/login');

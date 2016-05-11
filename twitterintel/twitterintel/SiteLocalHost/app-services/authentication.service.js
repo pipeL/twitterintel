@@ -33,7 +33,7 @@
                               type: "GET",
                               crossDomain: true,
                               data: {id:JSON.stringify(send)},
-                              url: "http://localhost:7000/Login",
+                              url: "http://31.193.129.198:7000/Login",
                               dataType: "json",
                               success: function(result){
                                      if(result['0']=="False"){

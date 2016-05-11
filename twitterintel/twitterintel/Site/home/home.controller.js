@@ -18,7 +18,7 @@
         function initController() {
             loadCurrentUser();
             loadAllUsers();
-            console.log($rootScope.globals.id);
+            console.log($rootScope.globals.currentUser.id);
         }
 
         function loadCurrentUser() {

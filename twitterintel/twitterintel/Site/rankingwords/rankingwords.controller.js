@@ -36,7 +36,7 @@
         var aux = $rootScope.globals.currentUser.intel;
         if(aux == 'naive')
         {
-        $("#tabela").find('[name=row]').each(function(index){
+        $("#tabela").find('tr').each(function(index){
         if($(this).find('[name=type]').text() == 'Good')
         {
             arrayGood[$(this).find('[name=word]').text()] =$(this).find('[name=prob]').val();
@@ -67,7 +67,7 @@
         }
         else
             {
-                $("#tabela").find('[name=row]').each(function(index){
+                $("#tabela").find('td').each(function(index){
         if($(this).find('[name=type]').text() == 'Good')
         {
             arrayGood[$(this).find('[name=word]').text()] =$(this).find('[name=prob]').val();
@@ -110,7 +110,7 @@
                 var bad = $rootScope.BadProb;
                 var spam = $rootScope.SpamProb;
                 if (response.success) {
-                        var button = '<tr name="row"><td><h3 name ="type">Good</h3></td><td><textarea name="prob" style="width: 100%; height: 100%; border:None">';
+                        /*var button = '<tr name="row"><td><h3 name ="type">Good</h3></td><td><textarea name="prob" style="width: 100%; height: 100%; border:None">';
                         for(var key in good){
 
                             $('[name=unico]').append(button + good[String(key)] + '</textarea></ul></div></td>' + '<td><h3 name="word">' + String(key) + '</h3></td></tr>');
@@ -130,7 +130,31 @@
                             $('[name=unico]').append(button + spam[String(key)] + '</textarea></ul></div></td>' + '<td><h3  name="word">' + String(key) + '</h3></td></tr>');
 
                             //$(".tabela").append('<select class="' + String(key) + '">' + "<option>Good</option><option>Bad</option><option>Spam</option></select>");
-                        }
+                        }*/
+                        $(document).ready(function() {
+                        var t = $('#tabela').DataTable({"autoWidth": false});
+                        var counter = 1;
+                            for (var key in good)
+                            {
+                            var button = '<select name="answer" size="1" id="row-1-office" name="row-1-office"><option>Good</option><option>Bad</option><option>Spam</option>'
+                            var aux = t.row.add( [
+                                '<h3 name ="type">Good</h3>',
+                                '<textarea name="prob" style="width: 100%; height: 100%; border:None">' + good[String(key)] + '</textarea>',
+                                '<h3 name="word">' + String(key) + '</h3>'
+                            ] ).draw( false );
+                            }
+                            for (var key in bad)
+                            {
+                            var button = '<select name="answer" size="1" id="row-1-office" name="row-1-office"><option>Bad</option><option>Bad</option><option>Spam</option>'
+                            var aux = t.row.add( [
+                                '<h3 name ="type">Good</h3>',
+                                '<textarea name="prob" style="width: 100%; height: 100%; border:None">' + bad[String(key)] + '</textarea>',
+                                '<h3 name="word">' + String(key) + '</h3>'
+                            ] ).draw( false );
+                            }
+                            
+                            counter++;
+                        });
                         
                         $("#second").show();
                         vm.dataLoading = false;
@@ -148,7 +172,7 @@
                 var good = $rootScope.GoodProb;
                 var bad = $rootScope.BadProb;
                 if (response.success) {
-                        var button = '<tr name="row"><td><h3 name ="type">Good</h3></td><td><textarea name="prob" style="width: 100%; height: 100%; border:None">';
+                        /*var button = '<tr name="row"><td><h3 name ="type">Good</h3></td><td><textarea name="prob" style="width: 100%; height: 100%; border:None">';
                         for(var key in good){
 
                             $('[name=unico]').append(button + good[String(key)] + '</textarea></ul></div></td>' + '<td><h3 name="word">' + String(key) + '</h3></td></tr>');
@@ -161,7 +185,31 @@
                             $('[name=unico]').append(button + bad[String(key)] + '</textarea></ul></div></td>' + '<td><h3 name="word">' + String(key) + '</h3></td></tr>');
 
                             //$(".tabela").append('<select class="' + String(key) + '">' + "<option>Good</option><option>Bad</option><option>Spam</option></select>");
-                        }
+                        }*/
+                        $(document).ready(function() {
+                        var t = $('#tabela').DataTable({"autoWidth": false});
+                        var counter = 1;
+                            for (var key in good)
+                            {
+                            var button = '<select name="answer" size="1" id="row-1-office" name="row-1-office"><option>Good</option><option>Bad</option><option>Spam</option>'
+                            var aux = t.row.add( [
+                                '<h3 name ="type">Good</h3>',
+                                '<textarea name="prob" style="width: 100%; height: 100%; border:None">' + good[String(key)] + '</textarea>',
+                                '<h3 name="word">' + String(key) + '</h3>'
+                            ] ).draw( false );
+                            }
+                            for (var key in bad)
+                            {
+                            var button = '<select name="answer" size="1" id="row-1-office" name="row-1-office"><option>Bad</option><option>Bad</option><option>Spam</option>'
+                            var aux = t.row.add( [
+                                '<h3 name ="type">Good</h3>',
+                                '<textarea name="prob" style="width: 100%; height: 100%; border:None">' + bad[String(key)] + '</textarea>',
+                                '<h3 name="word">' + String(key) + '</h3>'
+                            ] ).draw( false );
+                            }
+                            
+                            counter++;
+                        });
                         
                         $("#second").show();
                         vm.dataLoading = false;
