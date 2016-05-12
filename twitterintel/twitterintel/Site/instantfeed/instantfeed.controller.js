@@ -13,6 +13,24 @@
         vm.getData = getData;
         vm.changePerfil=changePerfil;
         
+        (function initController() {
+            // reset login status
+            GraphsService.CheckStatus(function(response){
+            if($rootScope.globals.currentUser.status=='true'){
+                $("#first").hide();
+                $("#first1").hide();
+                $("#second").show();
+                $("#second1").hide();
+                $("#third").show();
+                alert('Still feeding , check graphs and wait for the end');
+            }
+            else{
+                vm.dataLoading= false;
+            }
+            
+            })
+        })();
+        
         
         function start() {
             vm.dataLoading = true;
@@ -60,6 +78,19 @@ $('#myTabContent div').each(function() {
         function getData(data){
             GraphsService.GetData(function(response){
                 vm.dataLoading = true;
+                var table = $('#tabela1').DataTable();
+            var table1 = $('#tabela2').DataTable();
+            var table2 = $('#tabela3').DataTable();
+ 
+            table
+                .clear()
+                .destroy();
+            table1
+                .clear()
+                .destroy();
+            table2
+                .clear()
+                .destroy();
                 var tweets = new Array();
                 var word = new Array();
                 var twoword = new Array();

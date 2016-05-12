@@ -41,7 +41,8 @@
         </div>
         <div class="form-group" ng-class="{ 'has-error': form.number.$dirty && form.number.$error.required }">
         <input name="number" type="text" ng-model="vm.number" class="form-control" id="number" placeholder="Number of tweets you want to analyze" required/>
-        <span ng-show="form.number.$dirty && form.number.$error.required" class="help-block">Number is required</span>
+            <input id="checkSave" type="checkbox" ng-model="myCheckbox" ng-change="cbSelected()">Save Probability Table<br>
+            <input id="saveText" class="form-control" style="display:none" type="text" placeholder="Name to Save if none will be random" ng-model="text1" />
         </div>
             
         <div class="form-actions">

@@ -5,8 +5,8 @@
         .module('app')
         .controller('RankingwordsController', RankingwordsController);
 
-    RankingwordsController.$inject = ['$location', 'GraphsService', '$rootScope'];
-    function RankingwordsController($location, GraphsService , $rootScope) {
+    RankingwordsController.$inject = ['$location', 'GraphsService', '$rootScope', '$scope'];
+    function RankingwordsController($location, GraphsService , $rootScope , $scope) {
         var vm = this;
 
         vm.getallprob= getallprob;
@@ -26,6 +26,13 @@
                                       })
         })();
         
+      $scope.cbSelected = function () {
+      if ($scope.myCheckbox) {
+            $("#saveText").show();
+      } else {
+        $scope.text1.hide();
+      }
+    }
         function submitData()
         {
         var arrayGood = {};
@@ -97,6 +104,9 @@
         
         
             }
+        if ($scope.myCheckbox) {
+            alert($("#saveText").text())
+        } 
         
     }
 
@@ -220,6 +230,7 @@
                     }
                 })
                 }
+            
             vm.dataLoading=false;
         }
         

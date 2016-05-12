@@ -18,15 +18,18 @@
         
         
         function refresh(data){
-            var table = $('#tabela').DataTable();
-            var table1 = $('#tabela1').DataTable();
-            var table2 = $('#tabela2').DataTable();
+            var table = $('#tabela1').DataTable();
+            var table1 = $('#tabela2').DataTable();
+            var table2 = $('#tabela3').DataTable();
  
             table
+                .clear()
                 .destroy();
             table1
+                .clear()
                 .destroy();
             table2
+                .clear()
                 .destroy();
             GraphsService.GetAllGraphs(function(response){
                 vm.dataLoading = true;

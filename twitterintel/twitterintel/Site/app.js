@@ -27,6 +27,7 @@
             .when('/', {
                 controller: 'HomeController',
                 templateUrl: 'home/home.view.html',
+                css: 'home/home.css',
                 controllerAs: 'vm'
             })
  
