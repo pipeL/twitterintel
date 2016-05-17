@@ -15,11 +15,10 @@
 </head>
 <body>
 
-        <div class="container">
-            <div class="col-lg-13">
+        
+            <div class="col-lg-12">
                 <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
                 <div ng-view></div>
-            </div>
     </div>
 
     

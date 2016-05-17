@@ -19,7 +19,7 @@ class KafkaConsumerSpout(Spout):
     def initialize(self, conf, context):
         self.consumer = KafkaConsumer(bootstrap_servers='localhost:9092',auto_offset_reset='earliest')
         self.db = pymongo.MongoClient()
-	self.topic='instanttopic'
+	self.topic='badtopic'
         self.consumer.subscribe([self.topic])
         
     #The return of this spout tuple['sentence'] = tweet

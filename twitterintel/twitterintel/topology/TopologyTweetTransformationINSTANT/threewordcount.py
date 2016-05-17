@@ -18,19 +18,12 @@ class ThreeWordCountBolt(BasicBolt):
         return[]
 
     def process(self,tup):
-        #if tup.is_tick_tuple():
-            #self.emitCurrentWindowCounts()
-        #else:
         aux = 'INSTANT'+tup.values[1]
         self.db[aux].threewordcole.update(
             {'word':str(tup.values[0])},
             {"$inc": { 'count': 1}},
             upsert=True
         )
-
-
-    def getComponentConfiguration(self):
-        return {"topology.tick.tuple.freq.secs":300}
 
 def run():
     ThreeWordCountBolt().run()

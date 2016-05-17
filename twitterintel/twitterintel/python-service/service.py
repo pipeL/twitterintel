@@ -113,6 +113,7 @@ class GetDataInstantFeed:
             send['threeword'][count]={}
             send['threeword'][count]['count']=line['count']
             send['threeword'][count]['word']=line['word']
+            count+=1
         
         send = json.dumps(send)
         return send
@@ -148,10 +149,10 @@ class Learning:
         t = threading.Thread(target=aux.start)
         db.LOGIN.login.update({"_id":int(user)},{"$set": {"status":"true"}},upsert=True)
         t.start()
+        t.join()
         #time.sleep(1)
         #if t.is_alive():    IMPORTANTE PARA PARAR MESMO QUE CONTINUE O THREAD
             #sys.exit()
-        t.join()
         db.LOGIN.login.update({"_id":int(user)},{"$set": {"status":"false"}},upsert=True)
         
         data = db[auxuser].online.find()

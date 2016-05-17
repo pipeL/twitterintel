@@ -22,7 +22,7 @@ class TwitterFeed():
         access_token_secret= data['access_token_secret']
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token,access_token_secret)
-        self.stream = tweepy.Stream(auth, TwitterListener(bad,good,spam,bad2,good2,spam2,bad3,good3,spam3,stop,user),timeout=60)
+        self.stream = tweepy.Stream(auth, TwitterListener(bad,good,spam,bad2,good2,spam2,bad3,good3,spam3,stop,user),timeout=30)
         self.stream.filter(track=[track])
         
     

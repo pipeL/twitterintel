@@ -68,3 +68,71 @@ PYTHON_EGG_CACHE=/tmp/petrel-test-4-1462969332/egg_cache
 [2016-05-11 18:01:47,454][kafka.coordinator][INFO]Heartbeat successful
 [2016-05-11 18:01:50,468][kafka.coordinator][INFO]Heartbeat successful
 [2016-05-11 18:01:53,528][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:01:56,542][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:01:59,562][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:02,623][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:05,641][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:08,657][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:11,672][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:14,729][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:17,742][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:20,771][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:23,330][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:26,382][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:29,404][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:32,459][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:35,472][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:38,488][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:41,503][kafka.coordinator][WARNING]Heartbeat: group is rebalancing; this consumer needs to re-join
+[2016-05-11 18:02:41,503][kafka.coordinator][WARNING]Heartbeat failed; retrying
+[2016-05-11 18:02:41,603][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-05-11 18:02:42,009][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 47) with member_id kafka-python-1.0.2-ca5de2ff-1244-473d-9f05-dd16e507ee09
+[2016-05-11 18:02:42,009][kafka.coordinator][INFO]Elected group leader -- performing partition assignments using range
+[2016-05-11 18:02:42,049][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'instanttopic', partition=0)]
+[2016-05-11 18:02:45,139][kafka.coordinator][WARNING]Heartbeat: group is rebalancing; this consumer needs to re-join
+[2016-05-11 18:02:45,139][kafka.coordinator][WARNING]Heartbeat failed; retrying
+[2016-05-11 18:02:45,239][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-05-11 18:02:45,648][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 48) with member_id kafka-python-1.0.2-ca5de2ff-1244-473d-9f05-dd16e507ee09
+[2016-05-11 18:02:45,648][kafka.coordinator][INFO]Elected group leader -- performing partition assignments using range
+[2016-05-11 18:02:45,648][kafka.coordinator.assignors.range][WARNING]No partition metadata for topic goodtopic
+[2016-05-11 18:02:45,828][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 48) with member_id kafka-python-1.0.2-ca5de2ff-1244-473d-9f05-dd16e507ee09
+[2016-05-11 18:02:45,828][kafka.coordinator][INFO]Elected group leader -- performing partition assignments using range
+[2016-05-11 18:02:45,869][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'instanttopic', partition=0)]
+[2016-05-11 18:02:48,959][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:51,972][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:54,991][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:58,048][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:01,061][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:04,075][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:07,134][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:10,151][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:13,170][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:16,186][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:19,244][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:22,264][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:25,283][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:28,342][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:31,359][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:34,376][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:36,931][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:39,948][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:42,966][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:45,983][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:49,036][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:52,058][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:55,078][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:03:58,144][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:04:01,165][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:04:04,190][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:04:07,243][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:04:10,264][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:04:13,284][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:04:16,305][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:04:19,362][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:04:22,384][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:04:24,905][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:04:27,967][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:04:30,986][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:04:34,046][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:04:37,066][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:04:40,089][kafka.coordinator][INFO]Heartbeat successful

@@ -125,3 +125,8 @@ PYTHON_EGG_CACHE=/tmp/petrel-good-5-1462980106/egg_cache
 [2016-05-11 18:01:47,440][kafka.coordinator][INFO]Heartbeat successful
 [2016-05-11 18:01:50,455][kafka.coordinator][INFO]Heartbeat successful
 [2016-05-11 18:01:53,476][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:01:56,497][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:01:59,558][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:02,582][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:05,605][kafka.coordinator][INFO]Heartbeat successful
+[2016-05-11 18:02:08,663][kafka.coordinator][INFO]Heartbeat successful

@@ -60,6 +60,19 @@ $('#myTabContent div').each(function() {
         function getData(data){
             GraphsService.GetData(function(response){
                 vm.dataLoading = true;
+                var table = $('#tabela1').DataTable();
+                var table1 = $('#tabela2').DataTable();
+                var table2 = $('#tabela3').DataTable();
+
+                table
+                    .clear()
+                    .destroy();
+                table1
+                    .clear()
+                    .destroy();
+                table2
+                    .clear()
+                    .destroy();
                 var tweets = new Array();
                 var word = new Array();
                 var twoword = new Array();
@@ -128,10 +141,10 @@ function loadTweets(data){
         .xUnits(dc.units.ordinal)
         .on('renderlet', function(chart) {
             chart.selectAll('rect').on("click", function(d) {
-                console.log("click!", d.x);
+                console.log("click!", d.x);});
             chart.selectAll("g.x text").attr('dx', '-30').attr(
   'dy', '-7').attr('transform', "rotate(90)");
-            });
+            
         });
       $(document).ready(function() {
                         var t = $('#tabela1').DataTable({"autoWidth": false});

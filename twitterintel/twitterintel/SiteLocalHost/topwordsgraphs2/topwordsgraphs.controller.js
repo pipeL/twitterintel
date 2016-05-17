@@ -18,15 +18,18 @@
         
         
         function refresh(data){
-            var table = $('#tabela').DataTable();
-            var table1 = $('#tabela1').DataTable();
-            var table2 = $('#tabela2').DataTable();
+            var table = $('#tabela1').DataTable();
+            var table1 = $('#tabela2').DataTable();
+            var table2 = $('#tabela3').DataTable();
  
             table
+                .clear()
                 .destroy();
             table1
+                .clear()
                 .destroy();
             table2
+                .clear()
                 .destroy();
             GraphsService.GetAllGraphs2(function(response){
                 vm.dataLoading = true;
@@ -130,10 +133,9 @@ function loadGraphBad(data)
                 console.log("click!", d.x);});
             chart.selectAll("g.x text").attr('dx', '-30').attr(
   'dy', '-7').attr('transform', "rotate(90)");
-            
         });
       $(document).ready(function() {
-                        var t = $('#tabela1').DataTable({"autoWidth": false});
+                        var t = $('#tabela2').DataTable({"autoWidth": false});
                         var counter = 1;
                             for (var key in data)
                             {
@@ -173,7 +175,7 @@ function loadGraphSpam(data)
            
         });
       $(document).ready(function() {
-                        var t = $('#tabela2').DataTable({"autoWidth": false});
+                        var t = $('#tabela3').DataTable({"autoWidth": false});
                         var counter = 1;
                             for (var key in data)
                             {

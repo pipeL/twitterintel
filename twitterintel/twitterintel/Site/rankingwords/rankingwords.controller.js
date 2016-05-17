@@ -157,7 +157,7 @@
                             {
                             var button = '<select name="answer" size="1" id="row-1-office" name="row-1-office"><option>Bad</option><option>Bad</option><option>Spam</option>'
                             var aux = t.row.add( [
-                                '<h3 name ="type">Good</h3>',
+                                '<h3 name ="type">Bad</h3>',
                                 '<textarea name="prob" style="width: 100%; height: 100%; border:None">' + bad[String(key)] + '</textarea>',
                                 '<h3 name="word">' + String(key) + '</h3>'
                             ] ).draw( false );
