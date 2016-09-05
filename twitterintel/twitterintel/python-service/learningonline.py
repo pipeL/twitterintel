@@ -18,7 +18,6 @@ class TwitterFeed():
         self.stream = tweepy.Stream(auth, TwitterListener(stop,user),timeout=30)
         self.stream.filter(track=[track])
         
-    
     def close(self):
         self.stream.disconnect()
         return True
@@ -29,11 +28,9 @@ class TwitterListener(tweepy.StreamListener):
         self.stop.update(['http','https','rt'])
         self.db = pymongo.MongoClient()
         self.aux = 'LEARNING'+user
-        #print 'ola'
         self.count = int(number)
 
     def on_data(self, data):
-        #print 'hj'
         tweet = json.loads(data)
         auxDB = self.db[self.aux]
         if 'text' in tweet:
