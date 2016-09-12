@@ -1,0 +1,6 @@
+# Standard files for Petrel
+logconfig.ini
+setup.sh
+
+# Topology-specific files
+#../../pyepde/dist/epde-*-py2.7.egg
