@@ -1,8 +1,0 @@
-nimbus.host: "localhost"
-topology.workers: 1
-
-oauth.consumer_key: "eaFmBSxUveRJfmyZYeabti9Q9"
-oauth.consumer_secret: "ADf76fi3O1lKMzBxWnjqf93l3GHv28uar3bkblkvyBrAyoA23i"
-oauth.acess_token: " 702208758362087425-HZiyl1x7Bh98cQa1WLBDYylyu10Bpl7"
-oauth.acess_token_secret: "IiNOTfgE3tEZvW2HDQhRKPMoOLU43NXJCXk8maj51SdAT"
-
