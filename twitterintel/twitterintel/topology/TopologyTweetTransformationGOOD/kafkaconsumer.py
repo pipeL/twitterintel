@@ -30,7 +30,6 @@ class KafkaConsumerSpout(Spout):
     #Each tweet added to 'badtopic' will be a Tuple
     #For each tuple data is saved at MONGODB DB = BOARD collection = bad
     def nextTuple(self):
-        #file = open('/home/pipe/twitterintel/topology/text.txt','a')
         for message in self.consumer:
             algo = message.value
 	    if (len(algo) > 4):

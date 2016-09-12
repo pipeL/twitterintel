@@ -15,7 +15,7 @@ class TwitterFeed():
         access_token_secret= data['access_token_secret']
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token,access_token_secret)
-        self.stream = tweepy.Stream(auth, TwitterListener(stop,user),timeout=30)
+        self.stream = tweepy.Stream(auth, TwitterListener(stop,user),timeout=300)
         self.stream.filter(track=[track])
         
     
@@ -37,7 +37,7 @@ class TwitterListener(tweepy.StreamListener):
         tweet = json.loads(data)
         auxDB = self.db[self.aux]
         if 'text' in tweet:
-            texto = tweet['text'].encode('ascii','ignore')
+            texto = tweet['text'].encode('utf-8','ignore')
             auxDB.online.insert_one({'tweet':texto})
         self.count-=1
         if self.count > 0:

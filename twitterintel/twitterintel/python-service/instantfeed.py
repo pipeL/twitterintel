@@ -22,7 +22,7 @@ class TwitterFeed():
         access_token_secret= data['access_token_secret']
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token,access_token_secret)
-        self.stream = tweepy.Stream(auth, TwitterListener(stop,user),timeout=60)
+        self.stream = tweepy.Stream(auth, TwitterListener(stop,user),timeout=259200)
         self.stream.filter(track=[track])
         
     
@@ -43,7 +43,7 @@ class TwitterListener(tweepy.StreamListener):
         stop.update(['http','https','rt'])
         tweet = json.loads(data)
         if 'text' in tweet:
-            texto = tweet['text'].encode('ascii','ignore')
+            texto =tweet['text'].encode('utf-8','ignore')
             self.numstop -=1
             texto = self.user+'-'+texto
             self.producer.send(self.instanttopic,texto)

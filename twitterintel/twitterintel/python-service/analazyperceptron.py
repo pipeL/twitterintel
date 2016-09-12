@@ -1,3 +1,4 @@
+import random
 import pymongo
 import nltk
 
@@ -48,11 +49,23 @@ class AnalyzerPerceptron:
             goodrankingword[line['word']]= line['count']
 
         board = 'BOARD'+user
-
-        for i in range(self.iterations):
-            tweets = self.db[board].good.find()
-            for line in tweets:
-                tokens = nltk.word_tokenize(line['tweet'])
+	for i in range(self.iterations):
+            auxiliar = dict()
+            tweetsgood = self.db[board].good.find()
+            tweetsbad = self.db[board].bad.find()
+            count = 0
+            for line in tweetsgood:
+                auxiliar[count]={'good':line['tweet']}
+                count+=1
+                for line2 in tweetsbad:
+                    auxiliar[count]={'bad':line2['tweet']}
+                    count+=1
+            for j in range(count):
+                scoregood=0
+                scorebad=0
+                tweet = auxiliar.pop(random.choice(auxiliar.keys()))
+                tipo = str(tweet.keys())[2:len(str(tweet.keys()))-2]
+                tokens = nltk.word_tokenize(tweet[str(tipo)])
                 for w in tokens:
                     w= w.encode('utf-8')
                     w= w.lower()
@@ -60,7 +73,11 @@ class AnalyzerPerceptron:
                         scoregood += goodrankingword[w]
                     if w in badrankingword.keys():
                         scorebad += badrankingword[w]
-                if scoregood < scorebad:
+                print str(tipo)+':\n'
+                print  str(scoregood)
+                print  str(scorebad) 
+                if scoregood < scorebad and tipo == 'good':
+                    print 'error:good'+str(i)
                     for w in tokens:
                         w= w.encode('utf-8')
                         w= w.lower()
@@ -69,22 +86,11 @@ class AnalyzerPerceptron:
                         if w not in badrankingword.keys():
                             badrankingword[w]=0.0001
                         aux = ((badrankingword[w]-goodrankingword[w]) + 1.0) / 2
-                        aux = min(0.004,aux)
-                        if w in goodrankingword.keys():
-                            goodrankingword[w]+=aux
-                        if w in badrankingword.keys():
-                            badrankingword[w]-=aux
-            tweets = self.db[board].bad.find()
-            for line in tweets:
-                tokens = nltk.word_tokenize(line['tweet'])
-                for w in tokens:
-                    w = w.encode('utf-8')
-                    w= w.lower()
-                    if w in goodrankingword.keys():
-                        scoregood += goodrankingword[w]
-                    if w in badrankingword.keys():
-                        scorebad += badrankingword[w]
-                if scoregood < scorebad:
+                        aux = min(0.04,aux)
+                        goodrankingword[w]+=aux
+                        badrankingword[w]-=aux
+                elif scoregood > scorebad and tipo == 'bad':
+                    print 'error:bad'+str(i)
                     for w in tokens:
                         w= w.encode('utf-8')
                         w= w.lower()
@@ -93,8 +99,9 @@ class AnalyzerPerceptron:
                         if w not in badrankingword.keys():
                             badrankingword[w]=0.0001
                         aux = ((goodrankingword[w]-badrankingword[w]) + 1.0) / 2
-                        aux = min(0.004,aux)
+                        aux = min(0.04,aux)
                         goodrankingword[w]-=aux
                         badrankingword[w]+=aux
-    
+
         return (badrankingword,goodrankingword,spamrankingword)
+

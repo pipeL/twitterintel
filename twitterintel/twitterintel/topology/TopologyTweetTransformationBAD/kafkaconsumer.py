@@ -30,11 +30,9 @@ class KafkaConsumerSpout(Spout):
     #Each tweet added to 'badtopic' will be a Tuple
     #For each tuple data is saved at MONGODB DB = BOARD collection = bad
     def nextTuple(self):
-        file = open('/home/pipe/twitterintel/twitterintel/topology/textoalgo.txt','a')
         for message in self.consumer:
             algo = message.value
-            file.write(str(message.value))
-	    if(len(algo) >4):
+      	    if(len(algo) >4):
             	user = algo[:1]
             	if user.isdigit():
                 	aux = 'BOARD'+user
@@ -43,7 +41,6 @@ class KafkaConsumerSpout(Spout):
                     		algo=algo[1:len(algo)]
                 	self.db[aux].bad.insert_one({'tweet':algo})
                 	storm.emit([algo,user])
-        file.close()
 
 def run():
     KafkaConsumerSpout().run()

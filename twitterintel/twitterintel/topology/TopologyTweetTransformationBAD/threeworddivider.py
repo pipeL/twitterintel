@@ -55,7 +55,7 @@ class ThreeWordDividerBolt(BasicBolt):
         aux = {}
         for w in nltk.word_tokenize(sentence):
             w = w.lower()
-            if w.isalpha() and (w != 'https') and (w != 'http') and (w != 'rt') :
+	    if w.isalpha() and w not in self.stop:
                 aux[count]= w
                 count+=1
         return aux

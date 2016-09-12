@@ -211,7 +211,7 @@ class Results:
             tokens = nltk.word_tokenize(data[line]['tweet'])
             for w in tokens:
                 w = w.lower()
-                w = w.encode('utf-8')
+                w = w.encode('utf-8','ignore')
                 if w.isalpha() and w not in stop:
                     texto=texto + ' ' + w
                     texto = texto.encode('utf-8')
@@ -812,7 +812,7 @@ class CheckStatus:
         send = {}
         user_data= web.input(id={})
         user = str(user_data.id)
-        send[0]=db.LOGIN.login.find_one({'_id':int(user)})['status']
+        send[0]='false'#db.LOGIN.login.find_one({'_id':int(user)})['status']
         send = json.dumps(send)
         return send
 

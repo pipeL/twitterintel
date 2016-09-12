@@ -13,7 +13,7 @@ def create(builder):
     builder.setBolt("WordDivider", WordDividerBolt(),1).shuffleGrouping("KafkaConsumer")
     builder.setBolt("TwoWordDivider", TwoWordDividerBolt(),1).shuffleGrouping("KafkaConsumer")
     builder.setBolt("ThreeWordDivider", ThreeWordDividerBolt(),1).shuffleGrouping("KafkaConsumer")
-    builder.setBolt("CountWord", WordCountBolt(),1).shuffleGrouping("WordDivider")
-    builder.setBolt("CountTwoWords", TwoWordCountBolt(),1).shuffleGrouping("TwoWordDivider")
-    builder.setBolt("CountThreeWords", ThreeWordCountBolt(),1).shuffleGrouping("ThreeWordDivider")
+    builder.setBolt("CountWord", WordCountBolt(),2).fieldsGrouping("WordDivider",["word"])
+    builder.setBolt("CountTwoWords", TwoWordCountBolt(),2).fieldsGrouping("TwoWordDivider",["word"])
+    builder.setBolt("CountThreeWords", ThreeWordCountBolt(),2).fieldsGrouping("ThreeWordDivider",["word"])
     
