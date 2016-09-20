@@ -1,0 +1,80 @@
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" http-equiv="encoding" />
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAA/9M5ANiuLwDmujYA8MI4APHCOADhtTQA6b02APLFOADzxTgA//ruAPjLQAD2yDgA98g4AP/88QD/0zoA78I5APzLOADxwjkA4LU1APvKOwD65KAA6r03APPFOQDasDMA9MU5AOS4NQD+zTsA7MA3AO3ANwDdszMA98g5AN6zMwD4yDkA/9A7APngkwD945sA/Ms5AO6/MgDzwjIA5Lg2AOW4NgDuwDgA/9Q5APLENQDxwzgA/8w3AP/+9gD0xjgA9cY4AP/OOgD+yzIA+Mk4APnJOAD/1DoA2K8wAPrlqADnuzcA+OKgAP/89AD9zDgA8sM5AP7MOADitjUA/Ms7APXGOQDcsTMA//vvAPbGOQD446YA/847AO7BNwDetDMA670yAPnJOQD6yTkA///9APnlqQD82nUA9sc3AOu+OAD1xjoA5bk2AO7BOADftDQA57w2APnJOgDyxDgA2a8yAP7NNwDzxDgA/803APDAMwDTqjAA37MvAPbHOAD3xzgA/9I6APrKOAD8yjgA6Lw3AOm8NwD///8A9cU2APLEOQD+zTgA88Q5AP/NOADjtzUA/cw7AOrBQgDsvzcA/MkzAN2yMwD945gA//76APfHOQDesjMA5ro1AO/CNwDXrTEA8cI3AP/SOwDgtTMA+so5APvKOQD/+u0A88EyAP/pqQDsvzgA7b84AN2yNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHp6eg8PNjY2KzY2NjYBACJKS3x8fSU8Pmlra2trazYydB8MITQ1fBElWVtrW2srG0FBRF8fTg5mTEMza2trNkBaahcJcmZmZmZmgGlrazZWBBI9f2ZmZmZmc3A8aS42UYIcHSNmc1cwMQ1LYmNpK1cWUG8VZgp5LGdPNHwRPisQOWRlOGZmZmZmZgtKfCU2gSkDA01mZmZmZmYkIUslNlVUP2w6ZjtJJlwnQXRKfQ9SgyBURWZ+B29HLRkxYHwPexhCdV4vbmRvKgUIRAxLYUh4WEJxP1I5UBwSakF0S3o3XXhYgxMoAxaBd2gZdEphAAIeBhp2gVNoUVYUbUYiAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAAA=" rel="icon" type="image/x-icon" />
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <title>Twitter Tweet Analyzer</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://dc-js.github.io/dc.js/css/dc.css" />
+    <script src="app-content/js/crossfilter.js"></script>
+  <script src="http://dc-js.github.io/dc.js/js/d3.js"></script>
+    <script src="app-content/js/d3.js"></script>
+    <script src="app-content/js/dc.js"></script>
+    
+    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+    
+    
+</head>
+<body>
+
+            <div class="col-lg-12">
+                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                <div ng-view></div>
+    </div>
+
+    
+    
+    
+    
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="app-content/js/crossfilter.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://dc-js.github.io/dc.js/css/dc.css" />
+  <script src="http://dc-js.github.io/dc.js/js/dc.js"></script>
+  <script src="http://dc-js.github.io/dc.js/js/d3.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js" ntegrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css" ntegrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+    
+    
+    
+    
+    <link rel="icon" type="image/x-icon" href="http://smartintelanalysis.com/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-cookies.min.js"></script>
+    
+    
+
+    <script src="app.js"></script>
+    <script src="app-services/authentication.service.js"></script>
+    <script src="app-services/flash.service.js"></script>
+    <script src="app-services/graphs.service.js"></script>
+
+    <!-- Real user service that uses an api -->
+    <!-- <script src="//cdn.rawgit.com/cornflourblue/angular-registration-login-example/master/app-services/user.service.js"></script> -->
+
+    <!-- Fake user service for demo that uses local storage -->
+    <script src="app-services/user.service.local-storage.js"></script>
+
+    <script src="home/home.controller.js"></script>
+    <script src="login/login.controller.js"></script>
+    <script src="register/register.controller.js"></script>
+    <script src="start/start.controller.js"></script>
+    <script src="rankingwords/rankingwords.controller.js"></script>
+    <script src="topwordsgraphs/topwordsgraphs.controller.js"></script>
+    <script src="topwordsgraphs2/topwordsgraphs.controller.js"></script>
+    <script src="topwordsgraphs3/topwordsgraphs.controller.js"></script>
+    <script src="tweets/tweets.controller.js"></script>
+    <script src="exprimentar/exprimentar.controller.js"></script>
+    <script src="instantfeed/instantfeed.controller.js"></script>
+    <script src="evaluation/evaluation.controller.js"></script>
+</body>

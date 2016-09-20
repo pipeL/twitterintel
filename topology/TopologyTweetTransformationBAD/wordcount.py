@@ -1,3 +1,6 @@
+import sys
+reload(sys)
+sys.setdefaultencoding("ISO-8859-1")
 import pymongo
 import nltk.corpus
 
@@ -24,7 +27,7 @@ class WordCountBolt(BasicBolt):
     def process(self,tup):
         aux = 'BAD'+tup.values[1]
         self.db[aux].wordcole.update_one(
-            {'word':str(tup.values[0])},
+            {'word':tup.values[0].encode('utf-8','ignore')},
             {"$inc": { 'count': 1}},
             upsert=True
         )

@@ -1,3 +1,6 @@
+import sys
+reload(sys)
+sys.setdefaultencoding("ISO-8859-1")
 import pymongo
 import nltk.corpus
 
@@ -20,7 +23,7 @@ class ThreeWordCountBolt(BasicBolt):
     def process(self,tup):
         aux = 'BAD'+tup.values[1]
         self.db[aux].threewordcole.update(
-            {'word':str(tup.values[0])},
+            {'word':tup.values[0].encode('utf-8','ignore')},
             {"$inc": { 'count': 1}},
             upsert=True
         )

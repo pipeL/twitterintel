@@ -1,3 +1,6 @@
+import sys
+reload(sys)
+sys.setdefaultencoding("ISO-8859-1")
 import nltk.corpus
 import logging
 from kafka import KafkaProducer
@@ -21,7 +24,7 @@ class WordDividerBolt(BasicBolt):
     #use get_words to separate words from original tweet and emit them to counter bolt
     def process(self, tup):
         for word in self.get_words(tup.values[0]):
-            word2 = word.encode('utf-8')
+            word= word.encode('utf-8','replace')
             storm.emit([word,tup.values[1]])
 
     #yield each word present in sentence
@@ -30,6 +33,6 @@ class WordDividerBolt(BasicBolt):
             w = w.lower()
             if w.isalpha() and w not in self.stop:
                 yield w
-                 
+
 def run():
     WordDividerBolt().run()

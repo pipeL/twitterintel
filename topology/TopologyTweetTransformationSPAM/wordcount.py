@@ -1,3 +1,6 @@
+import sys
+reload(sys)
+sys.setdefaultencoding("ISO-8859-1")
 import pymongo
 import nltk.corpus
 
@@ -22,9 +25,10 @@ class WordCountBolt(BasicBolt):
     #Each time will increment the word in MONGODB 
     #DB = GOOD Collection = wordcole
     def process(self,tup):
-        aux='SPAM'+tup.values[1]
+	if(len(tup.values[1])==1):
+        	aux='SPAM'+tup.values[1]
         self.db[aux].wordcole.update(
-            {'word':str(tup.values[0])},
+            {'word':tup.values[0].encode('utf-8','ignore')},
             {"$inc": { 'count': 1}},
             upsert=True
         )

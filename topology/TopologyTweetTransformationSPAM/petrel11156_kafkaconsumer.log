@@ -1,0 +1,656 @@
+Beginning task setup
+
+/usr/bin/flock
+Using existing venv: /tmp/petrel-spam-3-1474326247/venv
+Task setup took 0 seconds
+Launching: python -m petrel.run kafkaconsumer /home/pipe/topology/TopologyTweetTransformationSPAM/petrel11156_kafkaconsumer.log
+/usr/local/lib/python2.7/dist-packages/petrel-1.0.1.0.3-py2.7.egg/petrel/run.py invoked with the following arguments: ['kafkaconsumer', '/home/pipe/topology/TopologyTweetTransformationSPAM/petrel11156_kafkaconsumer.log']
+python version: 2.7.12
+user=root
+PATH=/tmp/petrel-spam-3-1474326247/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+LD_LIBRARY_PATH=/home/apache-storm-1.0.1/data/supervisor/stormdist/spam-3-1474326247/resources/Linux-amd64:/home/apache-storm-1.0.1/data/supervisor/stormdist/spam-3-1474326247/resources:/usr/local/lib:/opt/local/lib:/usr/lib
+PYTHON_EGG_CACHE=/tmp/petrel-spam-3-1474326247/egg_cache
+[2016-09-20 00:57:43,782][storm][INFO]Tuple profiling enabled. Will log tuple processing times.
+[2016-09-20 00:57:43,991][storm][INFO]Task received setupInfo from Storm: {'pidDir': '/home/apache-storm-1.0.1/data/workers/c1d9c409-702e-4b51-9157-d3e462163c19/pids', 'conf': {'storm.group.mapping.service.params': None, 'topology.tuple.serializer': 'org.apache.storm.serialization.types.ListDelegateSerializer', 'topology.workers': 1, 'drpc.worker.threads': 64, 'ui.filter.params': None, 'transactional.zookeeper.root': '/transactional', 'logviewer.cleanup.age.mins': 10080, 'worker.profiler.command': 'flight.bash', 'topology.executor.send.buffer.size': 1024, 'nimbus.file.copy.expiration.secs': 600, 'oauth.acess_token': ' 702208758362087425-HZiyl1x7Bh98cQa1WLBDYylyu10Bpl7', 'drpc.childopts': '-Xmx768m', 'nimbus.thrift.port': 6627, 'topology.disruptor.wait.timeout.millis': 1000, 'storm.zookeeper.retry.intervalceiling.millis': 30000, 'storm.local.dir': '/home/apache-storm-1.0.1/data', 'storm.auth.simple-acl.users': [], 'drpc.invocations.threads': 64, 'storm.zookeeper.superACL': None, 'storm.cluster.state.store': 'org.apache.storm.cluster_state.zookeeper_state_factory', 'storm.codedistributor.class': 'org.apache.storm.codedistributor.LocalFileSystemCodeDistributor', 'drpc.https.keystore.password': '', 'supervisor.blobstore.download.max_retries': 3, 'pacemaker.kerberos.users': [], 'storm.messaging.netty.client_worker_threads': 1, 'oauth.consumer_secret': 'ADf76fi3O1lKMzBxWnjqf93l3GHv28uar3bkblkvyBrAyoA23i', 'topology.component.resources.offheap.memory.mb': 0.0, 'supervisor.heartbeat.frequency.secs': 5, 'storm.group.mapping.service.cache.duration.secs': 120, 'storm.group.mapping.service': 'org.apache.storm.security.auth.ShellBasedGroupsMapping', 'storm.workers.artifacts.dir': 'workers-artifacts', 'drpc.request.timeout.secs': 600, 'pacemaker.childopts': '-Xmx1024m', 'nimbus.seeds': ['localhost'], 'topology.shellbolt.max.pending': 100, 'topology.min.replication.count': 1, 'topology.skip.missing.kryo.registrations': False, 'worker.heartbeat.frequency.secs': 1, 'storm.auth.simple-acl.users.commands': [], 'storm.zookepeer.port': 2181, 'zmq.hwm': 0, 'topology.worker.shared.thread.pool.size': 4, 'storm.zookeeper.connection.timeout': 15000, 'java.library.path': '/usr/local/lib:/opt/local/lib:/usr/lib', 'logviewer.max.sum.worker.logs.size.mb': 4096, 'task.refresh.poll.secs': 10, 'topology.max.error.report.per.interval': 5, 'topology.worker.logwriter.childopts': '-Xmx64m', 'ui.actions.enabled': True, 'storm.health.check.timeout.ms': 5000, 'topology.scheduler.strategy': 'org.apache.storm.scheduler.resource.strategies.scheduling.DefaultResourceAwareStrategy', 'ui.host': '0.0.0.0', 'storm.messaging.netty.server_worker_threads': 1, 'topology.disruptor.batch.size': 100, 'storm.id': 'spam-3-1474326247', 'supervisor.worker.start.timeout.secs': 120, 'zmq.threads': 1, 'topology.acker.executors': None, 'pacemaker.thread.timeout': 10, 'storm.local.mode.zmq': False, 'topology.eventlogger.executors': 0, 'topology.tick.tuple.freq.secs': 30, 'supervisor.memory.capacity.mb': 3072.0, 'supervisor.worker.shutdown.sleep.secs': 1, 'pacemaker.base.threads': 10, 'drpc.http.creds.plugin': 'org.apache.storm.security.auth.DefaultHttpCredentialsPlugin', 'storm.zookeeper.servers': ['localhost'], 'supervisor.localizer.cache.target.size.mb': 10240, 'storm.messaging.netty.transfer.batch.size': 262144, 'resource.aware.scheduler.eviction.strategy': 'org.apache.storm.scheduler.resource.strategies.eviction.DefaultEvictionStrategy', 'topology.environment': None, 'storm.zookeeper.port': 2181, 'storm.auth.simple-acl.admins': [], 'pacemaker.host': 'localhost', 'nimbus.childopts': '-Xmx1024m', 'storm.principal.tolocal': 'org.apache.storm.security.auth.DefaultPrincipalToLocal', 'storm.nimbus.retry.times': 5, 'topology.classpath': None, 'drpc.authorizer.acl.filename': 'drpc-auth-acl.yaml', 'topology.bolts.outgoing.overflow.buffer.enable': False, 'nimbus.credential.renewers.freq.secs': 600, 'worker.childopts': '-Xmx%HEAP-MEM%m -XX:+PrintGCDetails -Xloggc:artifacts/gc.log -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=1M -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=artifacts/heapdump', 'drpc.queue.size': 128, 'supervisor.blobstore.class': 'org.apache.storm.blobstore.NimbusBlobStore', 'topology.multilang.serializer': 'org.apache.storm.multilang.JsonSerializer', 'storm.zookeeper.retry.times': 5, 'topology.disable.loadaware': False, 'supervisor.run.worker.as.user': False, 'storm.blobstore.replication.factor': 3, 'worker.profiler.childopts': '-XX:+UnlockCommercialFeatures -XX:+FlightRecorder', 'nimbus.thrift.threads': 64, 'nimbus.monitor.freq.secs': 10, 'storm.blobstore.inputstream.buffer.size.bytes': 65536, 'dev.zookeeper.path': '/tmp/dev-storm-zookeeper', 'topology.users': [], 'storm.daemon.metrics.reporter.plugins': ['org.apache.storm.daemon.metrics.reporters.JmxPreparableReporter'], 'storm.exhibitor.poll.uripath': '/exhibitor/v1/cluster/list', 'pacemaker.max.threads': 50, 'drpc.https.keystore.type': 'JKS', 'topology.tasks': None, 'storm.zookeeper.root': '/storm', 'logviewer.childopts': '-Xmx128m', 'topology.max.replication.wait.time.sec': 60, 'worker.gc.childopts': '', 'backpressure.disruptor.low.watermark': 0.4, 'storm.meta.serialization.delegate': 'org.apache.storm.serialization.GzipThriftSerializationDelegate', 'transactional.zookeeper.port': None, 'drpc.max_buffer_size': 1048576, 'topology.worker.childopts': None, 'storm.auth.simple-white-list.users': [], 'topology.max.spout.pending': None, 'nimbus.topology.validator': 'org.apache.storm.nimbus.DefaultTopologyValidator', 'topology.kryo.register': None, 'petrel.host': 'localhost', 'client.blobstore.class': 'org.apache.storm.blobstore.NimbusBlobStore', 'nimbus.cleanup.inbox.freq.secs': 600, 'storm.nimbus.retry.intervalceiling.millis': 60000, 'storm.network.topography.plugin': 'org.apache.storm.networktopography.DefaultRackDNSToSwitchMapping', 'storm.messaging.netty.min_wait_ms': 100, 'nimbus.task.timeout.secs': 30, 'topology.disruptor.batch.timeout.millis': 1, 'topology.state.checkpoint.interval.ms': 1000, 'ui.header.buffer.bytes': 4096, 'nimbus.thrift.max_buffer_size': 1048576, 'ui.http.creds.plugin': 'org.apache.storm.security.auth.DefaultHttpCredentialsPlugin', 'topology.sleep.spout.wait.strategy.time.ms': 1, 'nimbus.blobstore.expiration.secs': 600, 'storm.cluster.mode': 'distributed', 'storm.messaging.netty.socket.backlog': 500, 'worker.profiler.enabled': False, 'nimbus.queue.size': 100000, 'logviewer.appender.name': 'A1', 'drpc.authorizer.acl.strict': False, 'ui.port': 8080, 'supervisor.slots.ports': [6700, 6701, 6702, 6703], 'worker.log.level.reset.poll.secs': 30, 'storm.nimbus.retry.interval.millis': 2000, 'drpc.invocations.port': 3773, 'supervisor.monitor.frequency.secs': 3, 'ui.childopts': '-Xmx768m', 'transactional.zookeeper.servers': None, 'storm.log4j2.conf.dir': 'log4j2', 'supervisor.supervisors': [], 'zmq.linger.millis': 5000, 'topology.error.throttle.interval.secs': 10, 'storm.health.check.dir': 'healthchecks', 'topology.executor.receive.buffer.size': 1024, 'nimbus.impersonation.authorizer': 'org.apache.storm.security.auth.authorizer.ImpersonationAuthorizer', 'topology.submitter.principal': '', 'topology.worker.max.heap.size.mb': 768.0, 'topology.spout.wait.strategy': 'org.apache.storm.spout.SleepSpoutWaitStrategy', 'task.heartbeat.frequency.secs': 3, 'topology.transfer.buffer.size': 1024, 'storm.zookeeper.session.timeout': 20000, 'topology.testing.always.try.serialize': False, 'nimbus.blobstore.class': 'org.apache.storm.blobstore.LocalFsBlobStore', 'topology.stats.sample.rate': 0.05, 'topology.fall.back.on.java.serialization': True, 'storm.exhibitor.port': 8080, 'storm.zookeeper.auth.password': None, 'supervisor.childopts': '-Xmx256m', 'topology.backpressure.enable': True, 'pacemaker.port': 6699, 'topology.enable.message.timeouts': True, 'nimbus.code.sync.freq.secs': 120, 'backpressure.disruptor.high.watermark': 0.9, 'storm.messaging.netty.max_wait_ms': 1000, 'topology.worker.receiver.thread.count': 1, 'topology.component.resources.onheap.memory.mb': 128.0, 'resource.aware.scheduler.priority.strategy': 'org.apache.storm.scheduler.resource.strategies.priority.DefaultSchedulingPriorityStrategy', 'nimbus.supervisor.timeout.secs': 60, 'pacemaker.auth.method': 'NONE', 'drpc.https.port': -1, 'nimbus.inbox.jar.expiration.secs': 3600, 'scheduler.display.resource': False, 'topology.kryo.factory': 'org.apache.storm.serialization.DefaultKryoFactory', 'storm.zookeeper.retry.interval': 1000, 'supervisor.supervisors.commands': [], 'supervisor.localizer.cleanup.interval.ms': 600000, 'storm.messaging.netty.max_retries': 300, 'task.credentials.poll.secs': 30, 'drpc.http.port': 3774, 'storm.messaging.transport': 'org.apache.storm.messaging.netty.Context', 'supervisor.enable': True, 'nimbus.task.launch.secs': 120, 'supervisor.blobstore.download.thread.count': 5, 'topology.message.timeout.secs': 30, 'oauth.acess_token_secret': 'IiNOTfgE3tEZvW2HDQhRKPMoOLU43NXJCXk8maj51SdAT', 'storm.messaging.netty.authentication': False, 'petrel.user': 'pipe', 'drpc.port': 3772, 'storm.messaging.netty.buffer_size': 5242880, 'topology.state.synchronization.timeout.secs': 60, 'worker.heap.memory.mb': 768, 'topology.name': 'spam', 'topology.priority': 29, 'supervisor.worker.timeout.secs': 30, 'ui.filter': None, 'topology.trident.batch.emit.interval.millis': 500, 'topology.max.task.parallelism': None, 'supervisor.cpu.capacity': 400.0, 'topology.submitter.user': 'root', 'logviewer.max.per.worker.logs.size.mb': 2048, 'nimbus.host': 'localhost', 'topology.builtin.metrics.bucket.size.secs': 60, 'topology.component.cpu.pcore.percent': 10.0, 'ui.users': None, 'storm.thrift.transport': 'org.apache.storm.security.auth.SimpleTransportPlugin', 'logs.users': None, 'logviewer.port': 8000, 'oauth.consumer_key': 'eaFmBSxUveRJfmyZYeabti9Q9', 'topology.kryo.decorators': [], 'topology.debug': False, 'storm.zookeeper.auth.user': None}, 'context': {'task->component': {'11': '__acker', '10': 'WordDivider', '1': 'CountThreeWords', '3': 'CountTwoWords', '2': 'CountThreeWords', '5': 'CountWord', '4': 'CountTwoWords', '7': 'KafkaConsumer', '6': 'CountWord', '9': 'TwoWordDivider', '8': 'ThreeWordDivider'}, 'stream->target->grouping': {'default': {'WordDivider': {'type': 'SHUFFLE'}, 'ThreeWordDivider': {'type': 'SHUFFLE'}, 'TwoWordDivider': {'type': 'SHUFFLE'}}}, 'source->stream->fields': {}, 'streams': ['default'], 'stream->outputfields': {'default': ['sentence', 'user']}, 'taskid': 7, 'source->stream->grouping': {}, 'componentid': 'KafkaConsumer'}}
+[2016-09-20 00:57:43,996][storm][INFO]Task sent pid to Storm
+[2016-09-20 00:57:44,103][kafka.conn][INFO]Broker version identifed as 0.10
+[2016-09-20 00:57:44,103][kafka.conn][INFO]Set configuration api_version=(0, 10) to skip auto check_version requests on startup
+[2016-09-20 00:57:44,106][kafka.consumer.subscription_state][INFO]Updating subscribed topics to: ['spamtopic']
+[2016-09-20 00:57:44,107][kafka.cluster][INFO]Group coordinator for kafka-python-default-group is BrokerMetadata(nodeId=0, host=u'localhost', port=9092, rack=None)
+[2016-09-20 00:57:44,107][kafka.coordinator][INFO]Discovered coordinator 0 for group kafka-python-default-group
+[2016-09-20 00:57:44,108][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([]) for group kafka-python-default-group
+[2016-09-20 00:57:44,108][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:06,640][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 60) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:06,643][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 60
+[2016-09-20 00:58:06,643][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:06,643][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:09,655][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:09,655][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:09,757][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:10,158][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:10,158][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:10,160][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 61) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:10,162][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 61
+[2016-09-20 00:58:10,162][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:10,163][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:13,173][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:13,173][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:13,275][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:13,676][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:13,676][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:13,678][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 62) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:13,688][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 62
+[2016-09-20 00:58:13,688][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:13,688][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:16,699][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:16,699][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:16,801][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:17,201][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:17,201][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:17,203][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 63) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:17,206][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 63
+[2016-09-20 00:58:17,207][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:17,207][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:20,216][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:20,216][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:20,318][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:20,719][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:20,719][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:20,722][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 64) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:20,725][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 64
+[2016-09-20 00:58:20,725][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:20,725][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:23,736][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:23,736][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:23,837][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:24,239][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:24,239][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:24,241][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 65) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:24,244][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 65
+[2016-09-20 00:58:24,245][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:24,245][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:27,254][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:27,254][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:27,355][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:27,756][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:27,756][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:27,761][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 66) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:27,765][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 66
+[2016-09-20 00:58:27,766][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:27,766][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:30,777][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:30,777][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:30,879][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:31,279][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:31,279][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:31,282][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 67) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:31,283][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 67
+[2016-09-20 00:58:31,283][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:31,283][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:34,295][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:34,296][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:34,397][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:34,801][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:34,801][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:34,802][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 68) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:34,804][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 68
+[2016-09-20 00:58:34,805][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:34,805][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:37,816][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:37,817][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:37,918][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:38,318][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:38,318][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:38,319][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 69) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:38,322][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 69
+[2016-09-20 00:58:38,322][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:38,322][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:41,334][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:41,334][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:41,435][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:41,835][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:41,836][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:41,838][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 70) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:41,839][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 70
+[2016-09-20 00:58:41,840][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:41,840][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:44,850][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:44,851][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:44,952][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:45,352][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:45,353][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:45,354][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 71) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:45,357][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 71
+[2016-09-20 00:58:45,357][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:45,357][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:48,367][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:48,367][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:48,468][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:48,870][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:48,870][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:48,871][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 72) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:48,874][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 72
+[2016-09-20 00:58:48,874][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:48,874][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:51,885][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:51,885][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:51,986][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:52,388][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:52,388][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:52,390][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 73) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:52,393][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 73
+[2016-09-20 00:58:52,393][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:52,393][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:55,403][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:55,404][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:55,505][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:55,905][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:55,905][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:55,907][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 74) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:55,910][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 74
+[2016-09-20 00:58:55,910][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:55,910][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:58,920][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:58:58,920][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:58:59,022][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:58:59,422][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:58:59,422][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:58:59,425][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 75) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:58:59,427][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 75
+[2016-09-20 00:58:59,427][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:58:59,427][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:02,437][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:02,438][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:02,539][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:02,939][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:02,939][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:02,944][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 76) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:02,946][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 76
+[2016-09-20 00:59:02,946][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:02,946][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:05,959][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:05,959][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:06,060][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:06,461][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:06,461][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:06,463][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 77) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:06,467][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 77
+[2016-09-20 00:59:06,467][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:06,467][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:09,479][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:09,479][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:09,580][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:09,980][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:09,980][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:09,983][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 78) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:09,985][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 78
+[2016-09-20 00:59:09,985][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:09,985][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:12,998][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:12,998][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:13,099][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:13,499][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:13,499][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:13,501][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 79) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:13,503][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 79
+[2016-09-20 00:59:13,504][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:13,504][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:16,516][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:16,516][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:16,618][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:17,019][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:17,019][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:17,020][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 80) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:17,022][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 80
+[2016-09-20 00:59:17,023][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:17,023][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:20,033][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:20,033][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:20,134][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:20,536][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:20,536][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:20,538][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 81) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:20,540][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 81
+[2016-09-20 00:59:20,540][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:20,540][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:23,550][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:23,550][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:23,651][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:24,052][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:24,052][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:24,055][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 82) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:24,058][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 82
+[2016-09-20 00:59:24,058][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:24,058][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:27,072][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:27,072][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:27,173][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:27,573][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:27,573][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:27,575][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 83) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:27,578][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 83
+[2016-09-20 00:59:27,578][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:27,578][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:30,589][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:30,589][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:30,690][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:31,092][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:31,092][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:31,093][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 84) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:31,098][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 84
+[2016-09-20 00:59:31,098][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:31,098][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:34,108][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:34,108][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:34,209][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:34,610][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:34,611][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:34,614][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 85) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:34,615][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 85
+[2016-09-20 00:59:34,615][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:34,616][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:37,626][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:37,626][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:37,727][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:38,127][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:38,128][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:38,132][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 86) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:38,135][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 86
+[2016-09-20 00:59:38,135][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:38,136][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:41,146][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:41,146][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:41,247][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:41,648][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:41,649][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:41,653][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 87) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:41,656][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 87
+[2016-09-20 00:59:41,656][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:41,656][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:44,666][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:44,666][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:44,767][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:45,169][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:45,169][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:45,171][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 88) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:45,183][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 88
+[2016-09-20 00:59:45,183][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:45,184][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:48,196][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:48,196][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:48,297][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:48,698][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:48,699][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:48,700][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 89) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:48,703][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 89
+[2016-09-20 00:59:48,703][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:48,703][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:51,750][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:51,751][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:51,852][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:52,264][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:52,264][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:52,278][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 90) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:52,281][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 90
+[2016-09-20 00:59:52,281][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:52,281][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:55,296][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:55,296][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:55,398][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:55,801][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:55,801][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:55,804][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 91) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:55,806][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 91
+[2016-09-20 00:59:55,807][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:55,807][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:58,817][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 00:59:58,817][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 00:59:58,919][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 00:59:59,320][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 00:59:59,320][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 00:59:59,322][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 92) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 00:59:59,325][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 92
+[2016-09-20 00:59:59,325][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 00:59:59,325][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:02,337][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:02,337][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:02,439][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:02,840][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:02,840][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:02,845][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 93) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:02,851][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 93
+[2016-09-20 01:00:02,851][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:02,852][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:05,861][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:05,861][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:05,963][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:06,363][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:06,363][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:06,365][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 94) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:06,367][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 94
+[2016-09-20 01:00:06,367][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:06,368][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:09,379][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:09,379][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:09,480][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:09,882][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:09,882][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:09,885][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 95) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:09,887][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 95
+[2016-09-20 01:00:09,887][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:09,888][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:12,898][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:12,899][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:13,000][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:13,400][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:13,400][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:13,402][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 96) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:13,404][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 96
+[2016-09-20 01:00:13,404][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:13,404][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:16,420][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:16,421][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:16,522][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:16,922][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:16,922][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:16,924][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 97) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:16,927][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 97
+[2016-09-20 01:00:16,927][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:16,927][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:19,937][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:19,937][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:20,038][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:20,440][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:20,440][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:20,442][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 98) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:20,444][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 98
+[2016-09-20 01:00:20,445][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:20,445][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:23,455][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:23,455][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:23,557][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:23,958][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:23,958][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:23,960][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 99) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:23,963][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 99
+[2016-09-20 01:00:23,964][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:23,964][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:26,974][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:26,974][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:27,075][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:27,476][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:27,476][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:27,478][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 100) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:27,480][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 100
+[2016-09-20 01:00:27,481][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:27,481][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:30,491][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:30,491][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:30,592][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:30,992][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:30,993][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:30,995][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 101) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:30,998][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 101
+[2016-09-20 01:00:30,998][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:30,998][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:34,010][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:34,011][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:34,112][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:34,512][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:34,513][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:34,514][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 102) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:34,516][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 102
+[2016-09-20 01:00:34,531][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:34,531][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:37,542][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:37,543][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:37,644][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:38,044][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:38,044][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:38,046][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 103) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:38,048][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 103
+[2016-09-20 01:00:38,048][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:38,048][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:41,059][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:41,060][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:41,161][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:41,562][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:41,562][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:41,565][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 104) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:41,567][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 104
+[2016-09-20 01:00:41,568][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:41,568][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:44,577][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:44,577][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:44,678][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:45,079][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:45,079][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:45,081][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 105) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:45,083][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 105
+[2016-09-20 01:00:45,083][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:45,083][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:48,094][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:48,095][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:48,196][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:48,597][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:48,597][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:48,598][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 106) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:48,601][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 106
+[2016-09-20 01:00:48,601][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:48,601][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:51,611][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:51,612][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:51,713][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:52,113][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:52,113][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:52,116][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 107) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:52,118][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 107
+[2016-09-20 01:00:52,118][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:52,118][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:55,129][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:55,129][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:55,230][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:55,631][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:55,631][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:55,636][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 108) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:55,639][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 108
+[2016-09-20 01:00:55,639][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:55,639][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:58,651][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:00:58,651][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:00:58,752][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:00:59,153][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:00:59,154][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:00:59,155][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 109) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:00:59,159][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 109
+[2016-09-20 01:00:59,159][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:00:59,159][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:02,170][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:02,170][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:02,271][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:02,672][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:02,673][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:02,674][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 110) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:02,677][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 110
+[2016-09-20 01:01:02,677][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:02,677][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:05,688][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:05,688][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:05,789][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:06,190][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:06,190][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:06,192][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 111) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:06,195][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 111
+[2016-09-20 01:01:06,195][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:06,196][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:09,205][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:09,205][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:09,306][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:09,708][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:09,708][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:09,711][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 112) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:09,713][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 112
+[2016-09-20 01:01:09,714][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:09,714][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:12,723][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:12,723][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:12,824][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:13,226][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:13,226][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:13,227][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 113) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:13,229][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 113
+[2016-09-20 01:01:13,230][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:13,230][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:16,239][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:16,240][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:16,341][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:16,742][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:16,742][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:16,744][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 114) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:16,746][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 114
+[2016-09-20 01:01:16,746][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:16,746][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:19,757][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:19,757][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:19,858][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:20,260][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:20,260][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:20,262][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 115) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:20,264][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 115
+[2016-09-20 01:01:20,265][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:20,265][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:23,276][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:23,276][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:23,377][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:23,778][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:23,779][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:23,780][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 116) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:23,782][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 116
+[2016-09-20 01:01:23,783][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:23,783][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:26,794][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:26,794][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:26,896][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:27,296][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:27,297][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:27,298][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 117) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:27,302][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 117
+[2016-09-20 01:01:27,302][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:27,302][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:30,311][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:30,312][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:30,413][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:30,813][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:30,813][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:30,815][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 118) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:30,819][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 118
+[2016-09-20 01:01:30,820][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:30,820][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:33,831][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:33,831][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:33,932][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:34,332][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:34,332][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:34,335][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 119) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:34,338][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 119
+[2016-09-20 01:01:34,338][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:34,338][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:37,349][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:37,350][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:37,451][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:37,851][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:37,851][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:37,853][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 120) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:37,856][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 120
+[2016-09-20 01:01:37,857][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:37,857][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:40,866][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:40,866][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:40,968][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:41,368][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:41,368][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:41,371][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 121) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:41,372][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 121
+[2016-09-20 01:01:41,373][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:41,373][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:44,384][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:44,384][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:44,485][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:44,887][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:44,887][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:44,890][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 122) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:44,891][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 122
+[2016-09-20 01:01:44,891][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:44,892][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:47,901][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:47,901][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:48,003][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:48,404][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:48,404][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:48,406][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 123) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:48,409][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 123
+[2016-09-20 01:01:48,409][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:48,409][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:51,419][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:51,419][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:51,520][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:51,922][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:51,922][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:51,927][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 124) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:51,931][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 124
+[2016-09-20 01:01:51,931][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:51,931][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:54,942][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:54,942][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:55,044][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:55,445][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:55,445][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:55,447][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 125) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:55,449][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 125
+[2016-09-20 01:01:55,450][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:55,450][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:58,462][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:01:58,462][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:01:58,564][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:01:58,964][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:01:58,964][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:01:58,965][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 126) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:01:58,968][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 126
+[2016-09-20 01:01:58,968][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:01:58,968][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:02:01,986][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:02:01,986][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:02:02,087][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:02:02,487][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:02:02,487][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:02:02,489][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 127) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:02:02,492][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 127
+[2016-09-20 01:02:02,492][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:02:02,492][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:02:05,504][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:02:05,504][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:02:05,606][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:02:06,006][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:02:06,006][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:02:06,007][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 128) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:02:06,010][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 128
+[2016-09-20 01:02:06,011][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:02:06,011][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:02:09,022][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:02:09,022][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:02:09,124][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:02:09,525][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:02:09,525][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:02:09,528][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 129) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:02:09,530][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 129
+[2016-09-20 01:02:09,530][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:02:09,531][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:02:12,539][kafka.coordinator][WARNING]Heartbeat failed for group kafka-python-default-group because it is rebalancing
+[2016-09-20 01:02:12,540][kafka.coordinator][WARNING]Heartbeat failed ([Error 27] RebalanceInProgressError: ); retrying
+[2016-09-20 01:02:12,641][kafka.coordinator][INFO]Skipping heartbeat: no auto-assignment or waiting on rebalance
+[2016-09-20 01:02:13,041][kafka.coordinator.consumer][INFO]Revoking previously assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group
+[2016-09-20 01:02:13,041][kafka.coordinator][INFO](Re-)joining group kafka-python-default-group
+[2016-09-20 01:02:13,045][kafka.coordinator][INFO]Joined group 'kafka-python-default-group' (generation 130) with member_id kafka-python-1.3.1-edddd366-6167-4068-af87-06e8dcecf11a
+[2016-09-20 01:02:13,048][kafka.coordinator][INFO]Successfully joined group kafka-python-default-group with generation 130
+[2016-09-20 01:02:13,048][kafka.consumer.subscription_state][INFO]Updated partition assignment: [TopicPartition(topic=u'spamtopic', partition=0)]
+[2016-09-20 01:02:13,048][kafka.coordinator.consumer][INFO]Setting newly assigned partitions set([TopicPartition(topic=u'spamtopic', partition=0)]) for group kafka-python-default-group

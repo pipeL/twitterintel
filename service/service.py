@@ -12,8 +12,8 @@ from kafka import KafkaProducer
 from instantfeed import InstantFeed as feed
 from learningonline import Learning as learn
 
-from analazyperceptron import AnalyzerPerceptron
-from analazyperceptronfeed import Learning as perce
+from analyzeperceptron import AnalyzerPerceptron
+from analyzeperceptronfeed import Learning as perce
 
 from analyzefeed import Learning as analy
 from analyze import Analyzer
@@ -224,6 +224,10 @@ class Results:
                 db[aux].badlearning.update({"type":'contagem'},{"$inc": {'count':1}},upsert=True)
                 texto = user + '-' + texto
                 producer.send(badtopic,texto)
+	    if(data[line]['answer']=='Spam'):
+                db[aux].spamlearning.update({"type":'contagem'},{"$inc": {'count':1}},upsert=True)
+                texto = user + '-' + texto
+                producer.send(spamtopic,texto)
             #if(data[line]['answer']=='Spam'):
                 #self.producer.send(self.spamtopic,texto)
         return 'algo'

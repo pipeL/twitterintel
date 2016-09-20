@@ -1,0 +1,15 @@
+Exception occurred in wordcount. Worker exiting.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/petrel-1.0.1.0.3-py2.7.egg/petrel/run.py", line 100, in main
+    getattr(module, 'run')()
+  File "/home/apache-storm-1.0.1/data/supervisor/stormdist/bad-2-1473799007/resources/wordcount.py", line 40, in run
+    WordCountBolt().run()
+  File "/usr/local/lib/python2.7/dist-packages/petrel-1.0.1.0.3-py2.7.egg/petrel/storm.py", line 377, in run
+    tup = readTuple()
+  File "/usr/local/lib/python2.7/dist-packages/petrel-1.0.1.0.3-py2.7.egg/petrel/storm.py", line 81, in readTuple
+    cmd = readCommand()
+  File "/usr/local/lib/python2.7/dist-packages/petrel-1.0.1.0.3-py2.7.egg/petrel/storm.py", line 74, in readCommand
+    msg = readMsg()
+  File "/usr/local/lib/python2.7/dist-packages/petrel-1.0.1.0.3-py2.7.egg/petrel/storm.py", line 43, in readMsg
+    line = sys.stdin.readline()
+KeyboardInterrupt

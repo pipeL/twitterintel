@@ -41,6 +41,7 @@ class KafkaConsumerSpout(Spout):
                		if(algo[0] == ' '):
                   		algo=algo[1:len(algo)]
                	  	self.db[aux].spam.insert_one({'tweet':algo})
+			algo=algo.encode('utf-8','replace')
                   	storm.emit([algo,user])
 
 def run():

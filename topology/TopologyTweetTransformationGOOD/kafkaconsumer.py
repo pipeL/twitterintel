@@ -1,3 +1,7 @@
+import sys
+reload(sys)
+sys.setdefaultencoding("ISO-8859-1")
+
 import time
 import logging
 #import mongo api
@@ -40,7 +44,10 @@ class KafkaConsumerSpout(Spout):
                		if(algo[0] == ' '):
                   		algo=algo[1:len(algo)]
                	  	self.db[aux].good.insert_one({'tweet':algo})
-                  	storm.emit([algo,user])
+                  	algo=algo.encode('utf-8','replace')
+			storm.emit([algo,user])
+			
+
 
 def run():
     KafkaConsumerSpout().run()

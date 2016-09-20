@@ -23,7 +23,7 @@ class Analyzer:
         spamword= db[auxspam].wordcole.find()
         countgood = float(db[auxuser].goodlearning.find_one()['count'])
         countbad = float(db[auxuser].badlearning.find_one()['count'])
-        #countspam = float(db[auxuser].spamlearning.find_one()['count'])
+        countspam = float(db[auxuser].spamlearning.find_one()['count'])
         for line in goodword:
             max += 1
         for line in badword:
@@ -58,7 +58,7 @@ class Analyzer:
         auxuser = 'LEARNING'+self.user
         countgood = float(db[auxuser].goodlearning.find_one()['count'])
         countbad =  float(db[auxuser].badlearning.find_one()['count'])
-        #countspam = float(db[auxuser].spamlearning.find_one()['count'])
+        countspam = float(db[auxuser].spamlearning.find_one()['count'])
         for line in goodword:
             max += 1
         for line in badword:
@@ -95,7 +95,7 @@ class Analyzer:
         spamword= db[auxspam].wordcole.find()
         countgood = float(db[auxuser].goodlearning.find_one()['count'])
         countbad = float(db[auxuser].badlearning.find_one()['count'])
-        #countspam = float(db[auxuser].spamlearning.find_one()['count'])
+        countspam = float(db[auxuser].spamlearning.find_one()['count'])
         for line in goodword:
             max += 1
         for line in badword:

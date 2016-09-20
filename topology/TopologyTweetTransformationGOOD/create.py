@@ -6,7 +6,7 @@ from threeworddivider import ThreeWordDividerBolt
 
 from twowordcount import TwoWordCountBolt
 from threewordcount import ThreeWordCountBolt
-from mongodbcount import WordCountBolt
+from wordcount import WordCountBolt
 
 def create(builder):
     builder.setSpout("KafkaConsumer", KafkaConsumerSpout(),1)
