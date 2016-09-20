@@ -1,0 +1,54 @@
+New python executable in /tmp/petrel-instant-4-1474390243/venv/bin/python2.7
+Also creating executable in /tmp/petrel-instant-4-1474390243/venv/bin/python
+Installing setuptools, pip, wheel...done.
+Running virtualenv with interpreter /usr/bin/python2.7
+Installing simplejson==2.6.1
+The directory '/home/pipe/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/pipe/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Requirement already satisfied (use --upgrade to upgrade): simplejson==2.6.1 in /usr/local/lib/python2.7/dist-packages/simplejson-2.6.1-py2.7-linux-x86_64.egg
+Installing thrift==0.8.0
+The directory '/home/pipe/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/pipe/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Requirement already satisfied (use --upgrade to upgrade): thrift==0.8.0 in /usr/local/lib/python2.7/dist-packages/thrift-0.8.0-py2.7-linux-x86_64.egg
+Installing PyYAML==3.10
+The directory '/home/pipe/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/pipe/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Requirement already satisfied (use --upgrade to upgrade): PyYAML==3.10 in /usr/local/lib/python2.7/dist-packages/PyYAML-3.10-py2.7-linux-x86_64.egg
+Installing petrel==1.0.1.0.3
+Searching for petrel==1.0.1.0.3
+Best match: petrel 1.0.1.0.3
+Processing petrel-1.0.1.0.3-py2.7.egg
+Adding petrel 1.0.1.0.3 to easy-install.pth file
+Installing petrel script to /tmp/petrel-instant-4-1474390243/venv/bin
+
+Using /usr/local/lib/python2.7/dist-packages/petrel-1.0.1.0.3-py2.7.egg
+Processing dependencies for petrel==1.0.1.0.3
+Finished processing dependencies for petrel==1.0.1.0.3
+The directory '/home/pipe/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/pipe/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Requirement already up-to-date: pip in /tmp/petrel-instant-4-1474390243/venv/lib/python2.7/site-packages
+The directory '/home/pipe/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/pipe/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Requirement already satisfied (use --upgrade to upgrade): kafka-python in /usr/local/lib/python2.7/dist-packages
+The directory '/home/pipe/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/pipe/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Collecting nltk==3.0.1
+  Downloading nltk-3.0.1.tar.gz (961kB)
+Collecting oauthlib==0.7.2
+  Downloading oauthlib-0.7.2.tar.gz (106kB)
+Installing collected packages: nltk, oauthlib
+  Found existing installation: nltk 3.2.1
+    Not uninstalling nltk at /usr/local/lib/python2.7/dist-packages, outside environment /tmp/petrel-instant-4-1474390243/venv
+  Running setup.py install for nltk: started
+    Running setup.py install for nltk: finished with status 'done'
+  Found existing installation: oauthlib 2.0.0
+    Not uninstalling oauthlib at /usr/local/lib/python2.7/dist-packages, outside environment /tmp/petrel-instant-4-1474390243/venv
+  Running setup.py install for oauthlib: started
+    Running setup.py install for oauthlib: finished with status 'done'
+Successfully installed nltk-3.0.1 oauthlib-0.7.2
+The directory '/home/pipe/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/pipe/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Requirement already satisfied (use --upgrade to upgrade): simplejson in /usr/local/lib/python2.7/dist-packages/simplejson-2.6.1-py2.7-linux-x86_64.egg
+The directory '/home/pipe/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/pipe/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Requirement already satisfied (use --upgrade to upgrade): pymongo in /usr/local/lib/python2.7/dist-packages
