@@ -57,24 +57,24 @@ class TwitterListener(tweepy.StreamListener):
                 #print('Positive: ' + texto + '\n')
                 texto = self.user+'-'+texto
                 self.producer.send(self.topicgood,texto)
-                saveTweet('pos',texto,self.user)
-                saveLocation('pos',texto,guessgood,self.user)
+                saveTweet('pos',tweet,texto,guessgood,self.user)
+                saveLocation('pos',tweet,self.user)
                 fil.write('POSITIVE:\n' + '\nTotal bad:' +  str(guessbad) + '\nTotal good:' +  str(guessgood) + '\n' + str(texto) + '\n\n\n')
                 fil.close()
             elif guessbad>guessgood:
                 #print('Negative: ' + texto + '\n')
                 texto = self.user+'-'+texto
                 self.producer.send(self.topicbad,texto)
-                saveTweet('neg',texto,guessbad,self.user)
-                saveLocation('neg',texto,self.user)
+                saveTweet('neg',tweet,texto,guessbad,self.user)
+                saveLocation('neg',tweet,self.user)
                 fil.write('NEGATIVE:\n' +'\nTotal good:' +  str(guessgood) +  '\nTotal bad:' + str(guessbad) + '\n' + str(texto) + '\n\n\n')
                 fil.close()
             else:
                 #print('Negative: ' + texto + '\n')
                 texto = self.user+'-'+texto
                 self.producer.send(self.topicbad,texto)
-                saveTweet('spam',texto,guessbad,self.user)
-                saveLocation('spam',texto,self.user)
+                saveTweet('spam',tweet,texto,guessbad,self.user)
+                saveLocation('spam',tweet,self.user)
                 fil.write('NEGATIVE:\n' +'\nTotal good:' +  str(guessgood) +  '\nTotal bad:' + str(guessbad) + '\n' + str(texto) + '\n\n\n')
                 fil.close()
 
@@ -100,14 +100,19 @@ class TwitterListener(tweepy.StreamListener):
 def help(bad,good,spam,tweet):
     scoregood = 0.0
     scorebad = 0.0
-    tokens = nltk.word_tokenize(tweet)
+    texto = tweet.encode('ascii','ignore')
+    stop=set(nltk.corpus.stopwords.words('english'))
+    stop.update(['http','https','rt'])
+    tokens = nltk.word_tokenize(tweet) 
+
     for w in tokens:
-        w= w.encode('utf-8')
-        w= w.lower()
-        if w in good.keys():
-            scoregood += good[w]
-        if w in bad.keys():
-            scorebad += bad[w]
+	w= w.lower()
+        w= w.encode('utf-8','ignore')
+	if w.isalpha() and w not in stop:
+            if w in good.keys():
+            	scoregood += good[w]
+            if w in bad.keys():
+            	scorebad += bad[w]
     return (scoregood,scorebad)
             
 
@@ -121,7 +126,7 @@ def saveLocation(tipo,tweet,user):
         else:
             db[board].badlocation.insert_one({"tweet":tweet['text'] , "created_at":tweet['created_at'] , "location": tweet['coordinates']})
     
-def saveTweet(tipo, tweet,guess,user):
+def saveTweet(tipo, tweet,texto,guess,user):
     db = pymongo.MongoClient()
     board = 'BOARD'+user
     id_str= tweet['user']['id']
@@ -144,10 +149,10 @@ def saveTweet(tipo, tweet,guess,user):
         db[board].badinfo.insert_one({"_id": auxcount , "id_str":id_str , "n_followers":n_followers , "location": location , "name": name , "friends_count": friends_count , "time": timenow, "tweet":tweet , "guess":guess})
 
     elif(tipo == 'spam'):
-        board.spamcounter.update({"type":'contagem'},{"$inc": {'count':1}},upsert=True)
+        db[board].spamcounter.update({"type":'contagem'},{"$inc": {'count':1}},upsert=True)
         auxcount = db[board].spamcounter.find_one()
         auxcount = auxcount["count"]
-        board.spaminfo.insert_one({"_id": auxcount , "id_str":id_str , "n_followers":n_followers , "location": location , "name": name , "friends_count": friends_count, "time":timenow, "tweet":tweet, "guess":guess})
+        db[board].spaminfo.insert_one({"_id": auxcount , "id_str":id_str , "n_followers":n_followers , "location": location , "name": name , "friends_count": friends_count, "time":timenow, "tweet":tweet, "guess":guess})
 
 
 class StopThread(StopIteration): pass

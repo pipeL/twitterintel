@@ -73,11 +73,11 @@ class AnalyzerPerceptron:
                         scoregood += goodrankingword[w]
                     if w in badrankingword.keys():
                         scorebad += badrankingword[w]
-                print str(tipo)+':\n'
-                print  str(scoregood)
-                print  str(scorebad) 
+                #print str(tipo)+':\n'
+                #print  str(scoregood)
+                #print  str(scorebad) 
                 if scoregood < scorebad and tipo == 'good':
-                    print 'error:good'+str(i)
+                    #print 'error:good'+str(i)
                     for w in tokens:
                         w= w.encode('utf-8')
                         w= w.lower()
@@ -90,7 +90,7 @@ class AnalyzerPerceptron:
                         goodrankingword[w]+=aux
                         badrankingword[w]-=aux
                 elif scoregood > scorebad and tipo == 'bad':
-                    print 'error:bad'+str(i)
+                    #print 'error:bad'+str(i)
                     for w in tokens:
                         w= w.encode('utf-8')
                         w= w.lower()
